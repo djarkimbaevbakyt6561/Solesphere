@@ -1,0 +1,46 @@
+@use 'app/styles/breakpoints';
+
+.heart {
+   &__icon {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      transition: all 0.15s linear;
+      @media (max-width: breakpoints.$md) {
+         width: 20px;
+         height: 20px;
+      }
+   }
+   &_button {
+      display: flex;
+      background: none;
+      border: none;
+   }
+   &_button[aria-pressed='true'] svg {
+      animation: pulse 0.25s;
+      color: var(--dark-red);
+      fill: var(--dark-red);
+   }
+   @keyframes pulse {
+      0%,
+      100% {
+         transform: scale3d(1, 1, 1);
+      }
+      50% {
+         transform: scale3d(1.25, 1.25, 1.25);
+      }
+   }
+}
+.add_to_basket_button {
+   width: 100%;
+   max-width: 256px;
+}
+.container {
+   max-width: 276px;
+   padding-right: 20px;
+   @media (max-width: breakpoints.$md) {
+      max-width: 202px;
+      padding-right: 10px;
+   }
+   // margin-right: 20px;
+}

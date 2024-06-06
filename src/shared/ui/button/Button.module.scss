@@ -1,0 +1,136 @@
+@use 'app/styles/breakpoints';
+
+.button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 400;
+   font-size: 1.075rem;
+   padding: 12px;
+   transition: all 0.15s linear;
+   line-height: 1;
+   white-space: nowrap;
+   cursor: pointer;
+
+   svg {
+      transition: all 0.15s linear;
+      width: 24px;
+      height: 24px;
+      color: var(--text-primary);
+      margin-right: 10px;
+   }
+   @media (max-width: breakpoints.$md) {
+      font-size: 0.9rem;
+      svg {
+         width: 18px;
+         height: 18px;
+      }
+   }
+   @media (hover: hover) {
+      &:hover svg {
+         color: var(--white);
+      }
+   }
+   @media (hover: none) {
+      &:active svg {
+         color: var(--white);
+      }
+   }
+   &_theme_blue {
+      color: var(--white);
+      border: none;
+      background-color: var(--primary-bg);
+
+      svg {
+         color: var(--white);
+      }
+      &:disabled {
+         opacity: 0.4;
+         cursor: default;
+         svg {
+            color: var(--white);
+         }
+      }
+      &:not(:disabled) {
+         @media (hover: hover) {
+            &:hover {
+               background-color: var(--dark-red);
+            }
+         }
+         @media (hover: none) {
+            &:active {
+               background-color: var(--dark-red);
+            }
+         }
+      }
+   }
+
+   &_theme_transparent-gray {
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      background-color: transparent;
+
+      &:disabled {
+         opacity: 0.3;
+         cursor: default;
+         border: 1px solid var(--text-primary);
+         svg {
+            color: var(--text-primary);
+         }
+      }
+
+      &:not(:disabled) {
+         @media (hover: hover) {
+            &:hover {
+               color: var(--primary-bg);
+               border-color: var(--primary-bg);
+            }
+
+            &:hover svg {
+               color: var(--primary-bg);
+            }
+         }
+         @media (hover: none) {
+            &:active {
+               color: var(--primary-bg);
+               border-color: var(--primary-bg);
+            }
+
+            &:active svg {
+               color: var(--primary-bg);
+            }
+         }
+      }
+   }
+
+   &_theme_transparent-blue {
+      color: var(--primary-bg);
+      border: 1px solid var(--primary-bg);
+      background-color: transparent;
+
+      &:disabled {
+         opacity: 0.4;
+         cursor: default;
+         border: 1px solid var(--border);
+         color: var(--text-primary);
+         svg {
+            color: var(--text-primary);
+         }
+      }
+
+      &:not(:disabled) {
+         @media (hover: hover) {
+            &:hover {
+               color: var(--white);
+               background-color: var(--primary-bg);
+            }
+         }
+         @media (hover: none) {
+            &:active {
+               color: var(--white);
+               background-color: var(--primary-bg);
+            }
+         }
+      }
+   }
+}

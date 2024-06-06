@@ -1,0 +1,22 @@
+@use 'app/styles/breakpoints';
+
+.nav_container {
+   display: flex;
+   gap: 20px;
+}
+@media (max-width: breakpoints.$md) {
+   .nav_item {
+      justify-content: center;
+      p {
+         display: none;
+      }
+   }
+}
+@media (max-width: breakpoints.$sm) {
+   .nav_item {
+      svg {
+         width: 20px;
+         height: 20px;
+      }
+   }
+}

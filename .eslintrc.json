@@ -1,0 +1,53 @@
+{
+   "env": {
+      "browser": true,
+      "es2021": true
+   },
+   "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:prettier/recommended",
+      "@feature-sliced",
+      "plugin:boundaries/recommended"
+   ],
+   "parser": "@typescript-eslint/parser",
+   "parserOptions": {
+      "project": "./tsconfig.json"
+   },
+   "settings": {
+      "import/resolver": {
+         "typescript": {
+            "alwaysTryTypes": true
+         }
+      }
+   },
+   "plugins": ["@typescript-eslint", "react", "boundaries", "react-hooks"],
+   "rules": {
+      "camelcase": "error",
+      "no-console": "warn",
+      "prettier/prettier": [
+         "warn",
+         {
+            "endOfLine": "auto"
+         }
+      ],
+      "import/no-internal-modules": "off",
+      "import/newline-after-import": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "react-hooks/rules-of-hooks": "warn",
+      "react/jsx-props-no-spreading": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/self-closing-comp": [
+         "error",
+         {
+            "component": true,
+            "html": true
+         }
+      ],
+
+      // Typescript
+      "@typescript-eslint/no-empty-interface": "warn",
+      "@typescript-eslint/no-explicit-any": "warn"
+   }
+}

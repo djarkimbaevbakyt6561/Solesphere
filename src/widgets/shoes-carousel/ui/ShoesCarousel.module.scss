@@ -1,0 +1,23 @@
+@use 'app/styles/breakpoints';
+
+.container {
+   li {
+      width: 276px !important;
+      @media (max-width: breakpoints.$md) {
+         width: 202px !important;
+      }
+   }
+   margin-top: 30px;
+   margin-bottom: 30px;
+   padding: 20px 0;
+}
+
+.title_container {
+   display: flex;
+   justify-content: space-between;
+   @media (max-width: breakpoints.$md) {
+      h2 {
+         font-size: 1.125rem;
+      }
+   }
+}

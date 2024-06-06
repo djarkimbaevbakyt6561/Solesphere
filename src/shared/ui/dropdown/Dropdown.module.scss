@@ -1,0 +1,19 @@
+.dropdown {
+   position: relative;
+   &__content {
+      background-color: var(--white);
+      width: 100%;
+      position: absolute;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+   }
+   &__content:hover {
+      display: block;
+   }
+   &__close {
+      display: none;
+   }
+   &__open {
+      display: block;
+   }
+}

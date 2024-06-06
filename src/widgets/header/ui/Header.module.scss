@@ -1,0 +1,52 @@
+@use 'app/styles/breakpoints';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap');
+
+.header {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   padding: 30px;
+
+   &_inner__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+   }
+   .logo__container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      img {
+         width: 48px;
+      }
+
+      h2 {
+         text-transform: uppercase;
+         color: var(--black);
+         font-family: 'Montserrat';
+      }
+      @media (max-width: breakpoints.$md) {
+         gap: 7px;
+         img {
+            width: 40px;
+         }
+         h2 {
+            font-size: 1.2rem;
+         }
+      }
+      @media (max-width: breakpoints.$sm) {
+         gap: 5px;
+         img {
+            width: 30px;
+         }
+         h2 {
+            font-size: 1rem;
+         }
+      }
+   }
+   &__search {
+      flex-grow: 1;
+   }
+}
