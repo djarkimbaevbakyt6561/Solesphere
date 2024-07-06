@@ -1,0 +1,10 @@
+.footer_nav {
+   &__title {
+      margin-bottom: 7px;
+   }
+   &__ul {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+   }
+}

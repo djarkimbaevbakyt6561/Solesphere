@@ -7,6 +7,7 @@ interface SideBarProps {
    readonly defaultWidth: string;
    readonly height: string;
    readonly children: ReactNode;
+   readonly title?: string;
    readonly className?: string;
    readonly openButton: ReactNode;
 }
@@ -15,6 +16,7 @@ export const SideBar: FC<SideBarProps> = ({
    defaultWidth,
    height,
    children,
+   title,
    className,
    openButton,
 }) => {
@@ -31,17 +33,17 @@ export const SideBar: FC<SideBarProps> = ({
    };
 
    return (
-      <div className={clsx(className)}>
+      <div>
          <div onClick={openSidebar}>{openButton}</div>
-
          <div
-            className={clsx(classes.sidebar__container, openClass)}
+            className={clsx(classes.sidebar__container, className, openClass)}
             style={{
                width,
                height,
             }}
          >
             <div className={classes.sidebar_button__container}>
+               <h3>{title}</h3>
                <button
                   className={classes.sidebar_close__button}
                   onClick={closeSidebar}

@@ -12,7 +12,7 @@
    border: 1px solid var(--border);
    color: var(--text-primary);
    font-size: 1rem;
-   height: 48px;
+   height: 44px;
 
    &:hover {
       border: 1px solid var(--border-account);
@@ -30,6 +30,21 @@
    input {
       width: 100%;
       padding-right: 40px;
+      &:focus::placeholder {
+         opacity: 0;
+      }
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      textarea:-webkit-autofill,
+      textarea:-webkit-autofill:hover,
+      textarea:-webkit-autofill:focus,
+      select:-webkit-autofill,
+      select:-webkit-autofill:hover,
+      select:-webkit-autofill:focus {
+         -webkit-box-shadow: 0 0 0px 1000px #e5e5e5 inset;
+         -webkit-text-fill-color: #000000;
+      }
    }
    button {
       cursor: pointer;
@@ -56,8 +71,8 @@
    }
 
    &_title {
-      font-size: 0.875rem;
+      font-size: 0.775rem;
+      font-family: Arial;
       color: var(--red);
-      margin-top: 5px;
    }
 }

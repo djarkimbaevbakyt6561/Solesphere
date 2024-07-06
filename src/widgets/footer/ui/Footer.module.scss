@@ -1,0 +1,29 @@
+.footer {
+   background-color: var(--footer-bg);
+   min-height: 200px;
+   padding: 20px;
+
+   &_inner__container {
+      display: flex;
+      justify-content: space-between;
+   }
+   &_catalog__nav_link {
+      a {
+         color: var(--text-footer);
+         &:hover {
+            color: var(--primary-bg);
+         }
+      }
+   }
+   &_about_me__nav_link {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      a {
+         color: var(--text-footer);
+         &:hover {
+            color: var(--primary-bg);
+         }
+      }
+   }
+}

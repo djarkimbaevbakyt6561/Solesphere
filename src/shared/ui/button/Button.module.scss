@@ -36,10 +36,10 @@
          color: var(--white);
       }
    }
-   &_theme_blue {
+   &_theme_black {
       color: var(--white);
       border: none;
-      background-color: var(--primary-bg);
+      background-color: var(--text-primary);
 
       svg {
          color: var(--white);
@@ -54,7 +54,7 @@
       &:not(:disabled) {
          @media (hover: hover) {
             &:hover {
-               background-color: var(--dark-red);
+               background-color: var(--primary-bg);
             }
          }
          @media (hover: none) {

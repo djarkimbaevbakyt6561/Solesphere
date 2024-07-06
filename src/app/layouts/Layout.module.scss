@@ -1,2 +1,10 @@
-.container {
-} 
+.layout {
+   &__container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+   }
+   &__main {
+      flex-grow: 1;
+   }
+}

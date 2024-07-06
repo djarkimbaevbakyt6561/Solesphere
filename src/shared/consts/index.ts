@@ -1,1 +1,1 @@
-export { CATALOG_NAVIGATION_CONTENT } from './catalog';
+export { CATALOG_NAVIGATION_CONTENT, ABOUT_ME } from './catalog';

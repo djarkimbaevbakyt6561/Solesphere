@@ -1,5 +1,5 @@
-import React, { FC, useState } from 'react';
-import { Button, Input } from 'shared/ui';
+import { FC, useState } from 'react';
+import { Button } from 'shared/ui';
 import { Dropdown } from 'shared/ui/dropdown/Dropdown';
 import { DropdownSearchItem } from '../dropdown-search-item/DropdownSearchItem';
 import classes from './Search.module.scss';
@@ -54,12 +54,12 @@ export const Search: FC<SearchProps> = ({ className }) => {
       if (searchValue.length < 3) {
          return (
             <div className={classes.search__info}>
-               Enter search terms, at least 3 characters
+               Введите название обуви, бренд, больше 3 символов
             </div>
          );
       }
       return (
-         <div>
+         <div className={classes.search_dropdown_container}>
             {books?.map(item => (
                <DropdownSearchItem
                   key={item.id}
@@ -71,7 +71,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
                   discount={item.discount}
                />
             ))}
-            <Button theme="transparent-gray">See more</Button>
+            <Button theme="transparent-gray">Увидеть больше</Button>
          </div>
       );
    };
@@ -80,8 +80,8 @@ export const Search: FC<SearchProps> = ({ className }) => {
       <div className={className}>
          <Dropdown
             labelElement={
-               <Input
-                  // className={}
+               <input
+                  className={classes.search_input}
                   placeholder="Input shoes by title"
                   onChange={e => setSearchValue(e.target.value)}
                   value={searchValue}
@@ -90,6 +90,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
                   onFocus={() => setIsOpen(true)}
                />
             }
+            className={classes.search_dropdown}
             isOpen={isOpen}
             content={renderContent()}
          />

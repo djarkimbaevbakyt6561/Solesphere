@@ -15,7 +15,7 @@ export const Button: FC<ButtonProps> = ({
    children,
    className,
    disabled,
-   theme = 'blue',
+   theme = 'black',
    onClick,
    Icon,
 }) => {

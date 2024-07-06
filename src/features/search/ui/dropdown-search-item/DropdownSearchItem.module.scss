@@ -5,7 +5,13 @@
       display: flex;
       gap: 20px;
       img {
-         width: 60px;
+         width: 80px;
+      }
+      @media (max-width: breakpoints.$sm) {
+         gap: 10px;
+         img {
+            width: 60px;
+         }
       }
    }
 
@@ -13,7 +19,7 @@
       flex-grow: 1;
       color: var(--black);
       p {
-         font-size: 17px;
+         font-size: 1.125rem;
       }
       ul {
          display: flex;
@@ -23,6 +29,14 @@
          font-weight: 600;
          font-size: 0.875rem;
       }
+      @media (max-width: breakpoints.$sm) {
+         p {
+            font-size: 1rem;
+         }
+         ul {
+            font-size: 0.775rem;
+         }
+      }
    }
    &_price {
       &_container {
@@ -31,6 +45,9 @@
          gap: 20px;
          p {
             font-weight: 600;
+         }
+         @media (max-width: breakpoints.$sm) {
+            gap: 10px;
          }
       }
 

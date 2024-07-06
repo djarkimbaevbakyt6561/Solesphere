@@ -1,8 +1,13 @@
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CATALOG_NAVIGATION_CONTENT } from 'shared/consts';
 import classes from './CatalogNavBar.module.scss';
 
-export const CatalogNavBar = () => {
+interface CatalogNavBarProps {
+   readonly className?: string;
+}
+
+export const CatalogNavBar: FC<CatalogNavBarProps> = ({ className }) => {
    const catalogNavigation = CATALOG_NAVIGATION_CONTENT.map(el => {
       return (
          <li key={el.id}>
@@ -13,7 +18,7 @@ export const CatalogNavBar = () => {
       );
    });
    return (
-      <nav>
+      <nav className={className}>
          <ul className={classes.catalog__ul}>{catalogNavigation}</ul>
       </nav>
    );

@@ -1,0 +1,27 @@
+.search {
+   &_input {
+      transition: all 0.15s linear;
+      padding: 0 10px;
+      border-radius: 0%;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 1rem;
+      height: 44px;
+
+      &:hover {
+         border: 1px solid var(--border-account);
+      }
+      &:focus {
+         border: 1px solid var(--border-check);
+      }
+      width: 100%;
+   }
+   &_dropdown_container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+   }
+   &_dropdown {
+      z-index: 1;
+   }
+}

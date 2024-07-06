@@ -1,29 +1,18 @@
-import clsx from 'clsx';
-// import { useState } from 'react';
-import { Header } from 'widgets/header/ui/Header';
-import { ShoesCarousel } from 'widgets/shoes-carousel/ui/ShoesCarousel';
-import { NavBar } from 'features/navBar';
-import { BurgerIcon } from 'shared/assets/icons';
-import { SideBar } from 'shared/ui';
+import { Outlet } from 'react-router-dom';
+import { Footer } from 'widgets/footer';
+import { Header } from 'widgets/header';
 import classes from './Layout.module.scss';
+
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 export const Layout = () => {
-   // const [value, setValue] = useState<string>('');
-   // const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-   //    setValue(e.target.value);
-   // };
    return (
-      <div className={clsx(classes.container)}>
+      <div className={classes.layout__container}>
          <Header />
-         <ShoesCarousel title="Мужские" />
-         <SideBar
-            openButton={<BurgerIcon />}
-            defaultWidth={'250px'}
-            height={'400px'}
-         >
-            <NavBar />
-         </SideBar>
+         <main className={classes.layout__main}>
+            <Outlet />
+         </main>
+         <Footer />
       </div>
    );
 };
