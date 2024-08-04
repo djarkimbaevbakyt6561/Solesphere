@@ -21,8 +21,8 @@ export const Footer = () => {
    return (
       <footer className={classes.footer}>
          <div className={clsx('_container', classes.footer_inner__container)}>
-            <FooterNav title="Каталог" navContent={navContentForCatalog} />
-            <FooterNav title="Обо мне" navContent={navContentForAboutMe} />
+            <FooterNav title="Catalog" navContent={navContentForCatalog} />
+            <FooterNav title="About me" navContent={navContentForAboutMe} />
          </div>
       </footer>
    );

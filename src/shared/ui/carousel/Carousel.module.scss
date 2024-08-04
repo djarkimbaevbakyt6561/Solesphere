@@ -22,11 +22,7 @@
       }
 
       &:disabled {
-         &:hover {
-            color: var(--text-primary);
-         }
-         opacity: 0.4;
-         cursor: default;
+         display: none;
       }
    }
 

@@ -12,3 +12,6 @@ export { Carousel } from './carousel/Carousel';
 
 // package side-bar
 export { SideBar } from './side-bar/SideBar';
+
+// package sectionHeader
+export { SectionHeader } from './sectionHeader/SectionHeader';

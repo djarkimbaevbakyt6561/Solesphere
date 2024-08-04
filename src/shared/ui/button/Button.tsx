@@ -5,7 +5,7 @@ import classes from './Button.module.scss';
 interface ButtonProps {
    readonly children: string;
    readonly className?: string;
-   readonly theme?: string;
+   readonly theme?: 'black' | 'transparent-gray' | 'transparent-blue';
    readonly onClick?: () => void;
    readonly disabled?: boolean;
    readonly Icon?: FC<React.SVGProps<SVGSVGElement>>;

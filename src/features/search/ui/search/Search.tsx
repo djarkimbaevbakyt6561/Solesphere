@@ -8,27 +8,9 @@ const books = [
    {
       id: 1,
       title: 'Book',
+      description: 'kasljfaslk;fjsdalk;fjsadlk;fsajflksajflsakj',
       image: 'https://cdn.zenden.cloud/j4jx0hVNW9jrCIgbPDIrgC7O7mnxjKgaTGXFSw2EoWg/resize:fit:1472:1472:false:false:ce:0:0/aHR0cHM6Ly96ZW5kZW4ucnUvdXBsb2FkL2libG9jay9jOTgvYzk4MmYwYzA1NjBiYmQ5ZGExYzJhNmQ5NzMxOWRjN2UuanBn.jpg',
-      sizes: [
-         {
-            id: 1,
-            size: '38',
-         },
-         {
-            id: 2,
-            size: '38',
-         },
-         {
-            id: 3,
-            size: '38',
-         },
-         {
-            id: 4,
-            size: '38',
-         },
-      ],
       price: 1000,
-      discount: 40,
    },
 ];
 
@@ -53,8 +35,8 @@ export const Search: FC<SearchProps> = ({ className }) => {
       // }
       if (searchValue.length < 3) {
          return (
-            <div className={classes.search__info}>
-               Введите название обуви, бренд, больше 3 символов
+            <div className={classes.search_info}>
+               Input name of product, category, at least 3 characters
             </div>
          );
       }
@@ -64,14 +46,13 @@ export const Search: FC<SearchProps> = ({ className }) => {
                <DropdownSearchItem
                   key={item.id}
                   id={item.id}
-                  sizes={item.sizes}
+                  description={item.description}
                   title={item.title}
                   image={item.image}
                   price={item.price}
-                  discount={item.discount}
                />
             ))}
-            <Button theme="transparent-gray">Увидеть больше</Button>
+            <Button theme="transparent-gray">See more</Button>
          </div>
       );
    };
@@ -82,7 +63,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
             labelElement={
                <input
                   className={classes.search_input}
-                  placeholder="Input shoes by title"
+                  placeholder="Enter product by title"
                   onChange={e => setSearchValue(e.target.value)}
                   value={searchValue}
                   type="text"

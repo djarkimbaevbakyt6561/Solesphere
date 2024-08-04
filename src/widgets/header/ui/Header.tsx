@@ -19,20 +19,28 @@ export const Header = () => {
             <NavBar />
          </div>
          <div className={classes.header_inner__container}>
-            <SideBar
-               openButton={
-                  <div className={classes.header_catalog__container}>
-                     <BurgerIcon width={24} height={24} />
-                     <p>Каталог</p>
-                  </div>
-               }
-               title="Каталог"
-               className={classes.header_side_bar}
-               defaultWidth={'270px'}
-               height={'300px'}
-            >
-               <CatalogNavBar className={classes.header_catalog_with_burger} />
-            </SideBar>
+            <div>
+               <CatalogNavBar
+                  className={classes.header_catalog_without_burger}
+               />
+               <SideBar
+                  openButton={
+                     <button className={classes.header_catalog__container}>
+                        <BurgerIcon width={24} height={24} />
+                        <span>Catalog</span>
+                     </button>
+                  }
+                  title="Каталог"
+                  className={classes.header_side_bar}
+                  defaultWidth={'270px'}
+                  height={'300px'}
+               >
+                  <CatalogNavBar
+                     className={classes.header_catalog_with_burger}
+                  />
+               </SideBar>
+            </div>
+
             <Search className={classes.header__search} />
          </div>
       </header>

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { FC } from 'react';
-import { BasketIcon, HeartIcon, UserIcon } from 'shared/assets/icons';
+import { BasketIcon, UserIcon } from 'shared/assets/icons';
 import { NavLink } from 'shared/ui';
 import classes from './NavBar.module.scss';
 
@@ -37,14 +37,11 @@ export const NavBar: FC<NavBarProps> = ({ className }) => {
    //    ];
    return (
       <nav className={clsx(className, classes.nav_container)}>
-         <NavLink className={classes.nav_item} Icon={HeartIcon} to="/favorite">
-            Избранные
-         </NavLink>
          <NavLink className={classes.nav_item} Icon={BasketIcon} to="/basket">
-            Корзина
+            Cart
          </NavLink>
          <NavLink className={classes.nav_item} Icon={UserIcon} to="/sign-in">
-            Войти
+            Sign In
          </NavLink>
       </nav>
    );

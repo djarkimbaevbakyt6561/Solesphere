@@ -7,7 +7,12 @@
    width: 100%;
    gap: 10px;
    padding: 30px;
-
+   @media (max-width: breakpoints.$md) {
+      padding: 20px;
+   }
+   @media (max-width: breakpoints.$sm) {
+      padding: 15px;
+   }
    &_inner__container {
       display: flex;
       justify-content: space-between;
@@ -65,16 +70,18 @@
       border: 1px solid var(--border);
       padding: 7px;
       max-height: 44px;
+      background: none;
       cursor: pointer;
       align-items: center;
       gap: 10px;
-      p {
-         font-size: 1.2rem;
+      font-size: 1.2rem;
+      @media (min-width: (breakpoints.$md + 1px)) {
+         display: none;
       }
       @media (max-width: breakpoints.$sm) {
          border: none;
          padding: 0px;
-         p {
+         span {
             display: none;
          }
       }
@@ -87,8 +94,20 @@
       }
    }
    &_catalog_without_burger {
-      @media (max-width: breakpoints.$sm) {
-         display: none;
+      @media (max-width: breakpoints.$md) {
+         ul {
+            display: none;
+         }
+      }
+      @media (min-width: breakpoints.$lg) {
+         ul {
+            gap: 30px;
+         }
+      }
+      @media (min-width: breakpoints.$xxl) {
+         ul {
+            gap: 40px;
+         }
       }
    }
 }

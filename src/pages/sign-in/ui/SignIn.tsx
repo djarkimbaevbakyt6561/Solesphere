@@ -11,11 +11,11 @@ interface SignInProps {
 const SignIn: FC<SignInProps> = ({ className }) => {
    return (
       <div className={clsx(classes.sign__container, '_container', className)}>
-         <p className={classes.sign__title}>Войти</p>
+         <p className={classes.sign__title}>Sign In</p>
          <SignInForm />
          <p className={classes.sign_reg__title}>
-            У вас еще неть аккаунта?
-            <Link to="/sign-up"> Зарегестрируйтесь</Link>
+            Don&apos;t have an account?
+            <Link to="/sign-up"> Sign Up</Link>
          </p>
       </div>
    );

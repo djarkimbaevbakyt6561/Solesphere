@@ -3,19 +3,21 @@ import { EmailIcon, GithubIcon, TelegramIcon } from 'shared/assets/icons';
 export const CATALOG_NAVIGATION_CONTENT = [
    {
       id: 1,
-      title: 'Мужские',
-      to: 'catalog/mens',
+      title: 'Одежда',
+      to: 'catalog?categoryId=1',
    },
    {
       id: 2,
-      title: 'Женские',
-      to: 'catalog/womens',
+      title: 'Электроника',
+      to: 'catalog?categoryId=2',
    },
    {
       id: 3,
-      title: 'Детские',
-      to: 'catalog/childrens',
+      title: 'Мебель',
+      to: 'catalog?categoryId=3',
    },
+   { id: 4, title: 'Обувь', to: 'catalog?categoryId=4' },
+   { id: 5, title: 'Смешанный', to: 'catalog?categoryId=5' },
 ];
 
 export const ABOUT_ME = [

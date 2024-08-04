@@ -1,0 +1,42 @@
+@use 'app/styles/breakpoints';
+
+.basket {
+   &__container {
+      margin-bottom: 80px;
+   }
+   &_total_cost__container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 800px;
+      margin-top: 20px;
+      padding: 10px 0;
+      p {
+         font-size: 1.25rem;
+         font-weight: 600;
+      }
+      @media (max-width: breakpoints.$md) {
+         p {
+            font-size: 1.125rem;
+            font-weight: 600;
+         }
+      }
+      @media (max-width: breakpoints.$sm) {
+         p {
+            font-size: 1rem;
+            font-weight: 600;
+         }
+      }
+   }
+   &_total_cost {
+      font-weight: 600;
+      color: var(--dark-red);
+      font-size: 1.375rem;
+      white-space: nowrap;
+      @media (max-width: breakpoints.$md) {
+         font-size: 1.25rem;
+      }
+      @media (max-width: breakpoints.$sm) {
+         font-size: 1.125rem;
+      }
+   }
+}

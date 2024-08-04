@@ -29,44 +29,44 @@ export const SignInForm = () => {
             <Input
                name="email"
                validation={{
-                  required: 'Поле обязательно для заполнения',
+                  required: 'Field is required',
                   validate: {
                      symbolInclude: value =>
                         !/[^\w\-@.]/gi.test(value) ||
-                        'E-mail может содержать латинские буквы, цифры, дефис, нижнее подчеркивание',
+                        'Email can contain letters, numbers, hyphens, underscores',
                      format: value =>
                         /\S+@\S+\.\S{2,}/.test(value) ||
-                        'Допустимый формат почты: test@test.com',
+                        'Valid email format: test@test.com',
                   },
                }}
                type="email"
                label="Email"
-               placeholder="Введите email"
+               placeholder="Enter email"
             />
             <Input
                name="password"
                validation={{
-                  required: 'Поле обязательно для заполнения',
+                  required: 'Field is required',
                   validate: {
                      length: value =>
                         value.length > 8 ||
-                        'Пароль должен быть длиннее 8 символов',
+                        'Password must be longer than 8 characters',
                      uppercase: value =>
                         /[A-Z]/.test(value) ||
-                        'Пароль должен содержать хотя бы одну заглавную букву',
+                        'Password must contain at least one uppercase letter',
                      lowercase: value =>
                         /[a-z]/.test(value) ||
-                        'Пароль должен содержать хотя бы одну строчную букву',
+                        'Password must contain at least one lowercase letter',
                      digit: value =>
                         /\d/.test(value) ||
-                        'Пароль должен содержать хотя бы одну цифру',
+                        'Password must contain at least one digit',
                   },
                }}
-               label="Пароль"
+               label="Password"
                type="password"
-               placeholder="Введите пароль"
+               placeholder="Enter password"
             />
-            <Button className={classes.signIn_form_button}>Войти</Button>
+            <Button className={classes.signIn_form_button}>Sign In</Button>
          </form>
       </FormProvider>
    );

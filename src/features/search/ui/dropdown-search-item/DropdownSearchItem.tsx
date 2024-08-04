@@ -1,38 +1,23 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { IShoesCard } from 'entities/shoes';
+import { IProductCard } from 'shared/consts';
 import classes from './DropdownSearchItem.module.scss';
 
-export const DropdownSearchItem: FC<IShoesCard> = ({
+export const DropdownSearchItem: FC<IProductCard> = ({
    id,
    title,
-   discount,
    price,
    image,
-   sizes,
+   description,
 }) => {
-   const priceWithDiscount = price - (price / 100) * discount;
-
    return (
-      <Link className={classes.dropdown__item} to={`/shoes/details/${id}`}>
+      <Link className={classes.dropdown__item} to={`/product/details/${id}`}>
          <img src={image} alt={title} />
          <div className={classes.dropdown_title__container}>
             <p>{title}</p>
-            <ul>
-               {sizes.map(el => {
-                  return <li key={el.id}>{el.size}</li>;
-               })}
-            </ul>
+            <p className={classes.dropdown_description}>{description}</p>
          </div>
-         <div className={classes.dropdown_price_container}>
-            <p className={classes.dropdown_price_with_discount}>
-               {priceWithDiscount.toLocaleString()}{' '}
-               <span className={classes.dropdown_price_span}>c</span>
-            </p>
-            <p className={classes.dropdown_price_without_discount}>
-               {price.toLocaleString()} c
-            </p>
-         </div>
+         <p className={classes.dropdown_price}>{price.toLocaleString()} c</p>
       </Link>
    );
 };

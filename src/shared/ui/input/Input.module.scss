@@ -30,21 +30,10 @@
    input {
       width: 100%;
       padding-right: 40px;
-      &:focus::placeholder {
-         opacity: 0;
-      }
-      &:-webkit-autofill,
-      &:-webkit-autofill:hover,
-      &:-webkit-autofill:focus,
-      textarea:-webkit-autofill,
-      textarea:-webkit-autofill:hover,
-      textarea:-webkit-autofill:focus,
-      select:-webkit-autofill,
-      select:-webkit-autofill:hover,
-      select:-webkit-autofill:focus {
-         -webkit-box-shadow: 0 0 0px 1000px #e5e5e5 inset;
-         -webkit-text-fill-color: #000000;
-      }
+   }
+   input::-ms-reveal,
+   input::-ms-clear {
+      display: none;
    }
    button {
       cursor: pointer;

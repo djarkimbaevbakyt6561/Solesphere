@@ -5,7 +5,6 @@ import VisibilityOffIcon from './crossed-out-eye.svg';
 import EmailIcon from './email.svg';
 import VisibilityIcon from './eye.svg';
 import GithubIcon from './github.svg';
-import HeartIcon from './heart.svg';
 import LeftArrowIcon from './left-arrow.svg';
 import RightArrowIcon from './right-arrow.svg';
 import TelegramIcon from './telegram.svg';
@@ -17,7 +16,6 @@ export {
    CrossIcon,
    VisibilityOffIcon,
    VisibilityIcon,
-   HeartIcon,
    LeftArrowIcon,
    RightArrowIcon,
    UserIcon,

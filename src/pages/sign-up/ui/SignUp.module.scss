@@ -1,0 +1,19 @@
+.sign {
+    &__container {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+    &__title {
+        font-size: 1.5rem;
+    }
+    &_reg__title {
+        margin-top: 4px;
+        a {
+            color: var(--primary-bg)
+        }
+    }
+}

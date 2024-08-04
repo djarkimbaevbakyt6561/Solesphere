@@ -1,0 +1,10 @@
+.signUp_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 450px;
+    width: 100%;
+    &_button {
+        margin-top: 10px;
+    }
+}
