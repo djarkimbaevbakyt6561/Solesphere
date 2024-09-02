@@ -1,5 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import { Button, Input } from 'shared/ui';
+import { Button, InputRHF } from 'shared/ui';
 import classes from './SignInForm.module.scss';
 
 type FormValues = {
@@ -26,7 +26,7 @@ export const SignInForm = () => {
             onSubmit={methods.handleSubmit(onSubmit)}
             className={classes.signIn_form}
          >
-            <Input
+            <InputRHF
                name="email"
                validation={{
                   required: 'Field is required',
@@ -43,7 +43,7 @@ export const SignInForm = () => {
                label="Email"
                placeholder="Enter email"
             />
-            <Input
+            <InputRHF
                name="password"
                validation={{
                   required: 'Field is required',

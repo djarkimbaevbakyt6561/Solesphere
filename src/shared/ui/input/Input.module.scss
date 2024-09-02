@@ -1,67 +1,44 @@
-.label {
-   display: flex;
-   flex-direction: column;
-   gap: 5px;
-   color: var(--text-input);
-   font-size: 1rem;
-}
+@use 'app/styles/breakpoints';
+
 .input {
    transition: all 0.15s linear;
-   padding: 0 10px;
+   padding: 0 40px 0 10px;
    border-radius: 0%;
    border: 1px solid var(--border);
    color: var(--text-primary);
    font-size: 1rem;
    height: 44px;
-
+   @media (max-width: breakpoints.$md) {
+      &::placeholder {
+         font-size: 0.875rem;
+      }
+   }
    &:hover {
       border: 1px solid var(--border-account);
    }
    &:focus {
       border: 1px solid var(--border-check);
    }
+   width: 100%;
 }
-
-.password_container {
-   position: relative;
+.label {
    display: flex;
-   align-items: center;
-   justify-content: flex-end;
-   input {
-      width: 100%;
-      padding-right: 40px;
-   }
-   input::-ms-reveal,
-   input::-ms-clear {
-      display: none;
-   }
-   button {
-      cursor: pointer;
-      position: absolute;
-      border: none;
+   position: relative;
+   > button {
       background: none;
-      height: 26px;
-      padding-right: 10px;
-   }
-   svg {
-      width: 26px;
-      height: 26px;
-      color: var(--text-input);
-   }
-}
-.error {
-   border: 1px solid var(--red);
-
-   &:hover {
-      border: 1px solid var(--red);
-   }
-   &:focus {
-      border: 1px solid var(--red);
-   }
-
-   &_title {
-      font-size: 0.775rem;
-      font-family: Arial;
-      color: var(--red);
+      border: none;
+      position: absolute;
+      right: 5px;
+      bottom: 0;
+      top: 0;
+      > svg {
+         transition: all 0.15s linear;
+         width: 24px;
+         height: 24px;
+         color: var(--border-account);
+      }
+      &:not(:disabled) {
+         cursor: pointer;
+      }
    }
 }

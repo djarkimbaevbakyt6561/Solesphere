@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { CartProduct } from 'entities/cartProduct';
+import { CartProduct } from 'features/cartProduct';
 import { SectionHeader } from 'shared/ui';
 import classes from './Basket.module.scss';
 

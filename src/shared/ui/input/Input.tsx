@@ -1,82 +1,57 @@
-import clsx from 'clsx';
-import { FC, InputHTMLAttributes, useState } from 'react';
-import {
-   FieldValues,
-   RegisterOptions,
-   useController,
-   useFormContext,
-} from 'react-hook-form';
-import { VisibilityIcon, VisibilityOffIcon } from 'shared/assets/icons';
+import { FC, InputHTMLAttributes } from 'react';
 import classes from './Input.module.scss';
+import clsx from 'clsx';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-   label?: string;
-   validation?:
-      | Omit<
-           RegisterOptions<FieldValues, string>,
-           'disabled' | 'setValueAs' | 'valueAsNumber' | 'valueAsDate'
-        >
-      | undefined;
-   name: string;
+   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+   className?: string;
 }
+
 export const Input: FC<InputProps> = ({
-   name,
    value,
-   label,
-   placeholder,
-   validation,
-   type,
+   onChange,
+   onBlur,
+   onFocus,
+   Icon,
+   className,
    ...props
 }) => {
-   const { control } = useFormContext();
-   const {
-      field,
-      fieldState: { error },
-   } = useController({ name, control, rules: validation });
-   const [showPassword, setShowPassword] = useState<boolean>(false);
-
-   const errorClass = error?.message != null ? classes.error : '';
-
-   const toggleShowPassword = () => {
-      setShowPassword(!showPassword);
-   };
-
    let inputRender = (
       <input
-         {...field}
-         className={clsx(classes.input, errorClass)}
-         placeholder={placeholder}
-         type={type}
+         className={classes.input}
+         onChange={onChange}
          value={value}
+         onFocus={onFocus}
+         onBlur={onBlur}
          {...props}
       />
    );
-
-   if (type === 'password') {
+   if (Icon) {
       inputRender = (
-         <div className={classes.password_container}>
+         <>
             <input
-               {...field}
-               className={clsx(classes.input, errorClass)}
-               placeholder={placeholder}
-               type={showPassword ? 'text' : type}
+               className={classes.input}
+               onChange={onChange}
                value={value}
+               onFocus={onFocus}
+               onBlur={onBlur}
                {...props}
             />
-            <button onClick={toggleShowPassword}>
-               {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+            <button
+               disabled={value != undefined && value.toString().length < 1}
+            >
+               <Icon
+                  color={
+                     value != undefined && value.toString().length >= 1
+                        ? 'var(--text-primary) !important'
+                        : ''
+                  }
+               />
             </button>
-         </div>
+         </>
       );
    }
-
    return (
-      <label className={classes.label}>
-         {label}
-         {inputRender}
-         {error?.message && (
-            <p className={classes.error_title}>{error?.message}</p>
-         )}
-      </label>
+      <label className={clsx(classes.label, className)}>{inputRender}</label>
    );
 };

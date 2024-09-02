@@ -1,16 +1,11 @@
 import { useEffect, useRef } from 'react';
 
 type Timer = ReturnType<typeof setTimeout>;
-type SomeFunction = (...args: unknown[]) => void;
 
-interface UseDebounceResult<Func> {
-   readonly debouncedFunction: Func;
-}
-
-export const useDebounce = <Func extends SomeFunction>(
+export const useDebounce = <Func extends (...args: any[]) => void>(
    func: Func,
    delay = 1200,
-): UseDebounceResult<Func> => {
+): { debouncedFunction: Func } => {
    const timer = useRef<Timer>();
 
    useEffect(() => {
@@ -20,7 +15,7 @@ export const useDebounce = <Func extends SomeFunction>(
       };
    }, []);
 
-   const debouncedFunction = ((...args) => {
+   const debouncedFunction = ((...args: Parameters<Func>) => {
       if (timer.current) {
          clearTimeout(timer.current);
       }

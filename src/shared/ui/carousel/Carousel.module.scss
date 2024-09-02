@@ -4,6 +4,10 @@
    margin: 30px auto;
    position: relative;
 
+   &_right_arrow {
+      transform: rotate(180deg);
+   }
+
    .prev__button,
    .next__button {
       position: absolute;

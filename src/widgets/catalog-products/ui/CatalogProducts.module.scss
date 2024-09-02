@@ -1,0 +1,36 @@
+@use 'app/styles/breakpoints';
+
+.catalogProducts {
+   &__container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      max-width: 966px;
+      @media (min-width: breakpoints.$xl) {
+         max-width: 1080px;
+      }
+   }
+   @media (min-width: (breakpoints.$md + 1px)) and (max-width: breakpoints.$xl) {
+      &_product_card {
+         &_skeleton {
+            max-width: 230px;
+            max-height: 348px;
+         }
+         > div {
+            max-width: 230px;
+            font-size: 1rem !important;
+            > p {
+               font-size: 1.05rem;
+            }
+         }
+         > button {
+            font-size: 1rem;
+            > svg {
+               width: 22px;
+               height: 22px;
+            }
+         }
+      }
+   }
+}

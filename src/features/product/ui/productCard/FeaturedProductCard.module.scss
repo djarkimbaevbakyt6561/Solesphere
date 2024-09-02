@@ -37,10 +37,8 @@
 }
 .container {
    max-width: 276px;
-   padding-right: 20px;
    @media (max-width: breakpoints.$md) {
       max-width: 202px;
-      padding-right: 10px;
    }
    // margin-right: 20px;
 }

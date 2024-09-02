@@ -4,16 +4,22 @@ import { BasketIcon } from 'shared/assets/icons';
 import { IProductCard } from 'shared/consts';
 import { Button } from 'shared/ui';
 import classes from './FeaturedProductCard.module.scss';
+import clsx from 'clsx';
 
-export const FeaturedProductCard: FC<IProductCard> = ({
+interface FeaturedProductCardProps extends IProductCard {
+   className?: string;
+}
+
+export const FeaturedProductCard: FC<FeaturedProductCardProps> = ({
    id,
    title,
    image,
    description,
+   className,
    price,
 }) => {
    return (
-      <div className={classes.container}>
+      <div className={clsx(className, classes.container)}>
          <ProductCard
             id={id}
             title={title}

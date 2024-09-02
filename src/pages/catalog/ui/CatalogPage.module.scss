@@ -1,0 +1,34 @@
+@use 'app/styles/breakpoints';
+
+.catalogPage {
+   &_total_books__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      > p {
+         font-size: 14px;
+         color: var(--border-account);
+      }
+   }
+   &_filterPanel {
+      @media (max-width: breakpoints.$md) {
+         display: none !important;
+      }
+   }
+   &_sideBar__button {
+      display: none;
+      @media (max-width: breakpoints.$md) {
+         display: flex;
+      }
+   }
+   &_main__container {
+      display: grid;
+      grid-template-columns: 266px 1fr;
+      justify-content: space-between;
+      margin-top: 30px;
+      gap: 20px;
+      @media (max-width: breakpoints.$md) {
+         display: block;
+      }
+   }
+}

@@ -1,0 +1,8 @@
+@use 'app/styles/breakpoints';
+
+.productCard_skeleton {
+   @media (max-width: breakpoints.$md) {
+      max-width: 202px;
+      max-height: 303px;
+   }
+}

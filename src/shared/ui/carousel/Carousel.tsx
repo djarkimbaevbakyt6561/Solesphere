@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { FC, useState } from 'react';
 import AliceCarousel, { Responsive } from 'react-alice-carousel';
-import { LeftArrowIcon, RightArrowIcon } from 'shared/assets/icons';
+import { ArrowIcon } from 'shared/assets/icons';
 import classes from './Carousel.module.scss';
 
 interface CarouselProps {
@@ -60,14 +60,14 @@ export const Carousel: FC<CarouselProps> = ({
             onClick={getSlidePrev}
             disabled={isDisabledSlidePrev}
          >
-            <LeftArrowIcon />
+            <ArrowIcon />
          </button>
          <button
             className={classes.next__button}
             onClick={getSlideNext}
             disabled={isDisabledSlideNext}
          >
-            <RightArrowIcon />
+            <ArrowIcon className={classes.carousel_right_arrow} />
          </button>
       </div>
    );

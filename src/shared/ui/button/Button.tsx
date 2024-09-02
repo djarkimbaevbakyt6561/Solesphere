@@ -1,9 +1,9 @@
 import clsx from 'clsx';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import classes from './Button.module.scss';
 
 interface ButtonProps {
-   readonly children: string;
+   readonly children: ReactNode;
    readonly className?: string;
    readonly theme?: 'black' | 'transparent-gray' | 'transparent-blue';
    readonly onClick?: () => void;

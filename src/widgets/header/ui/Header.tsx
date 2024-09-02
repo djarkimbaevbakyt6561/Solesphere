@@ -5,7 +5,7 @@ import { NavBar } from 'features/navBar';
 import { Search } from 'features/search';
 import { BurgerIcon } from 'shared/assets/icons';
 import logo from 'shared/assets/images/logo.png';
-import { SideBar } from 'shared/ui';
+import { Button, SideBar } from 'shared/ui';
 import classes from './Header.module.scss';
 
 export const Header = () => {
@@ -25,14 +25,17 @@ export const Header = () => {
                />
                <SideBar
                   openButton={
-                     <button className={classes.header_catalog__container}>
-                        <BurgerIcon width={24} height={24} />
+                     <Button
+                        className={classes.header_catalog__button}
+                        Icon={BurgerIcon}
+                        theme="transparent-gray"
+                     >
                         <span>Catalog</span>
-                     </button>
+                     </Button>
                   }
-                  title="Каталог"
+                  title="Catalog"
                   className={classes.header_side_bar}
-                  defaultWidth={'270px'}
+                  defaultWidth={'230px'}
                   height={'300px'}
                >
                   <CatalogNavBar

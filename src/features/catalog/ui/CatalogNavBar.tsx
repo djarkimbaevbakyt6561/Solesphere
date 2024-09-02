@@ -11,7 +11,10 @@ export const CatalogNavBar: FC<CatalogNavBarProps> = ({ className }) => {
    const catalogNavigation = CATALOG_NAVIGATION_CONTENT.map(el => {
       return (
          <li key={el.id}>
-            <NavLink className={classes.catalog__nav_link} to={el.to}>
+            <NavLink
+               className={classes.catalog__nav_link}
+               to={`catalog?categoryId=${el.id}`}
+            >
                {el.title}
             </NavLink>
          </li>

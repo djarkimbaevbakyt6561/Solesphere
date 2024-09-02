@@ -1,26 +1,11 @@
 @use 'app/styles/breakpoints';
 
 .search {
-   &_input {
-      transition: all 0.15s linear;
-      padding: 0 10px;
-      border-radius: 0%;
-      border: 1px solid var(--border);
-      color: var(--text-primary);
-      font-size: 1rem;
-      height: 44px;
-      @media (max-width: breakpoints.$md) {
-         &::placeholder {
-            font-size: 0.875rem;
-         }
-      }
-      &:hover {
-         border: 1px solid var(--border-account);
-      }
-      &:focus {
-         border: 1px solid var(--border-check);
-      }
-      width: 100%;
+   &__loading {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
    &_info {
       @media (max-width: breakpoints.$md) {

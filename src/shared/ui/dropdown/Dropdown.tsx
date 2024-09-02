@@ -14,7 +14,7 @@ export const Dropdown: FC<DropdownProps> = ({
    content,
    className,
 }) => {
-   const open = isOpen ? classes.dropdown__open : classes.dropdown__close;
+   const open = isOpen ? classes.dropdown__open : classes.dropdown__closed;
    return (
       <div className={clsx(classes.dropdown, className)}>
          <div className={classes.dropdown__label}>{labelElement}</div>

@@ -1,0 +1,28 @@
+.accordion {
+   &_title__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      p {
+         font-weight: 600;
+      }
+   }
+   &_content {
+      height: 0;
+      overflow: hidden;
+      transition: 0.5s all, 0.3s opacity;
+      margin-top: 15px;
+   }
+   &_arrow__icon {
+      width: 14px;
+      height: 14px;
+      transition: 0.5s all;
+      transform: rotate(-90deg);
+      &__open {
+         transform: rotate(-270deg);
+      }
+   }
+}

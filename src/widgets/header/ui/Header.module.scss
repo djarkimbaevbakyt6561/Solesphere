@@ -65,16 +65,19 @@
          max-width: 600px;
       }
    }
-   &_catalog__container {
-      display: flex;
-      border: 1px solid var(--border);
-      padding: 7px;
+   &_catalog__button {
       max-height: 44px;
-      background: none;
-      cursor: pointer;
-      align-items: center;
-      gap: 10px;
       font-size: 1.2rem;
+      font-family: Montserrat;
+      svg {
+         width: 24px;
+         height: 24px;
+      }
+      &:hover {
+         svg {
+            fill: var(--primary-bg)
+         }
+      }
       @media (min-width: (breakpoints.$md + 1px)) {
          display: none;
       }

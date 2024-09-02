@@ -1,9 +1,11 @@
 import clsx from 'clsx';
 import { FC } from 'react';
 import { Responsive } from 'react-alice-carousel';
-import { FeaturedProductCard } from 'features/product';
+import { FeaturedProductCard, FeaturedProductCardSkeleton } from 'features/product';
 import { Button, Carousel } from 'shared/ui';
 import classes from './ProductCarousel.module.scss';
+import { useNavigate } from 'react-router-dom';
+import ContentLoader from 'react-content-loader';
 
 const responsive: Responsive = {
    1024: { items: 5 },
@@ -16,14 +18,25 @@ interface ProductCarouselProps {
    readonly title: string;
    /** Additional styles. */
    readonly className?: string;
+   id: number;
 }
 
 export const ProductCarousel: FC<ProductCarouselProps> = ({
    title,
    className,
+   id,
 }) => {
-   const array = [1, 2, 3, 4, 5, 6, 7, 8];
+   const array = [1, 2, 3, 4, 5];
+   const isLoading = true;
+   const navigate = useNavigate();
+
    const renderProducts = (items: number[]) => {
+      if (isLoading) {
+         return items?.map(item => {
+            return <FeaturedProductCardSkeleton key={item} />;
+         });
+      }
+
       return items?.map(item => (
          <FeaturedProductCard
             key={item}
@@ -40,14 +53,18 @@ export const ProductCarousel: FC<ProductCarouselProps> = ({
       <div className={clsx(classes.container, className, '_container')}>
          <div className={classes.title_container}>
             <h2>{title}</h2>
-            <Button theme="transparent-gray">See more</Button>
+            <Button
+               theme="transparent-gray"
+               onClick={() => navigate(`catalog?categoryId=${id}`)}
+            >
+               See more
+            </Button>
          </div>
          <Carousel
             autoWidth
             disableDotsControls
             responsive={responsive}
             countVisibleElements={5}
-            // className="home-page__carousel"
          >
             {renderProducts(array)}
          </Carousel>

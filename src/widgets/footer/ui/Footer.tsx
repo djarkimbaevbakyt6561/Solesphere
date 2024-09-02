@@ -7,7 +7,7 @@ import classes from './Footer.module.scss';
 export const Footer = () => {
    const navContentForCatalog = CATALOG_NAVIGATION_CONTENT.map(el => (
       <li key={el.id} className={classes.footer_catalog__nav_link}>
-         <NavLink to={el.to}>{el.title}</NavLink>
+         <NavLink to={`catalog?categoryId=${el.id}`}>{el.title}</NavLink>
       </li>
    ));
 
