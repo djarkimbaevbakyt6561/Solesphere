@@ -21,6 +21,9 @@
          display: flex;
       }
    }
+   &__container {
+      margin-bottom: 80px;
+   }
    &_main__container {
       display: grid;
       grid-template-columns: 266px 1fr;

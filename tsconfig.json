@@ -25,7 +25,7 @@
          "widgets/*": ["widgets/*"]
       }
    },
-   "include": ["src"],
+   "include": ["src", "src/widgets/cart-products/ui/CartProducts.tsx"],
    "ts-node": {
       "compilerOptions": {
          "module": "CommonJS"

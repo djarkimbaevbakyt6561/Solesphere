@@ -4,12 +4,17 @@
    &__container {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      justify-content: space-between;
+      gap: 15px;
+      justify-content: center;
       max-width: 966px;
       @media (min-width: breakpoints.$xl) {
          max-width: 1080px;
       }
+   }
+   &__button {
+      width: 100%;
+      padding: 15px 12px;
+      margin-top: 50px;
    }
    @media (min-width: (breakpoints.$md + 1px)) and (max-width: breakpoints.$xl) {
       &_product_card {

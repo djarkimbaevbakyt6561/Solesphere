@@ -1,0 +1,57 @@
+@use 'app/styles/breakpoints';
+
+.carousel {
+   margin: 30px auto;
+   position: relative;
+
+   &_not_found {
+      display: flex;
+      justify-content: center;
+      > div {
+         opacity: 0.9;
+      }
+   }
+
+   &_right_arrow {
+      transform: rotate(180deg);
+   }
+
+   .prev__button,
+   .next__button {
+      position: absolute;
+      top: 30%;
+      font-size: 50px;
+
+      color: var(--text-primary);
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      svg {
+         width: 20px;
+      }
+      &:hover {
+         color: var(--primary-bg);
+      }
+
+      &:disabled {
+         display: none;
+      }
+   }
+   .prev__button {
+      left: -50px;
+   }
+   .next__button {
+      right: -50px;
+   }
+
+   @media (max-width: (breakpoints.$xxl + 10px)) {
+      .prev__button {
+         left: -30px;
+      }
+      .next__button {
+         right: -30px;
+      }
+   }
+
+  
+}

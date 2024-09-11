@@ -1,7 +1,7 @@
-import React, { FC, useRef, useState } from 'react';
 import clsx from 'clsx';
-import classes from './Accordion.module.scss';
+import { FC, useRef, useState } from 'react';
 import { ArrowIcon } from 'shared/assets/icons';
+import classes from './Accordion.module.scss';
 
 interface AccordionProps {
    title: string;

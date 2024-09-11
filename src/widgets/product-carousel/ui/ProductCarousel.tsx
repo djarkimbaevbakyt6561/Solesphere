@@ -1,11 +1,14 @@
 import clsx from 'clsx';
 import { FC } from 'react';
 import { Responsive } from 'react-alice-carousel';
-import { FeaturedProductCard, FeaturedProductCardSkeleton } from 'features/product';
-import { Button, Carousel } from 'shared/ui';
-import classes from './ProductCarousel.module.scss';
 import { useNavigate } from 'react-router-dom';
-import ContentLoader from 'react-content-loader';
+import {
+   FeaturedProductCard,
+   FeaturedProductCardSkeleton,
+} from 'features/product';
+import { useGetProductsByCategoryIdQuery } from 'entities/product/api';
+import { Button, Carousel } from 'shared/ui';
+import './ProductCarousel.scss';
 
 const responsive: Responsive = {
    1024: { items: 5 },
@@ -22,36 +25,45 @@ interface ProductCarouselProps {
 }
 
 export const ProductCarousel: FC<ProductCarouselProps> = ({
+   id,
    title,
    className,
-   id,
 }) => {
+   const { isLoading, data } = useGetProductsByCategoryIdQuery(id);
+
    const array = [1, 2, 3, 4, 5];
-   const isLoading = true;
    const navigate = useNavigate();
 
-   const renderProducts = (items: number[]) => {
+   const renderProducts = (
+      items: ProductNameSpace.GetProductsByCategoryIdResponse | undefined,
+   ) => {
       if (isLoading) {
-         return items?.map(item => {
+         return array?.map(item => {
             return <FeaturedProductCardSkeleton key={item} />;
          });
       }
 
-      return items?.map(item => (
-         <FeaturedProductCard
-            key={item}
-            id={1}
-            description={'alsdjslafskaldfjsalfksd'}
-            image="https://cdn.zenden.cloud/j4jx0hVNW9jrCIgbPDIrgC7O7mnxjKgaTGXFSw2EoWg/resize:fit:1472:1472:false:false:ce:0:0/aHR0cHM6Ly96ZW5kZW4ucnUvdXBsb2FkL2libG9jay9jOTgvYzk4MmYwYzA1NjBiYmQ5ZGExYzJhNmQ5NzMxOWRjN2UuanBn.jpg"
-            price={300}
-            title="Hi"
-         />
-      ));
+      return items?.map(item => {
+         const cleanedImageUrl = item.images[0].replace(/[[\]" ]/g, '');
+
+         return (
+            <FeaturedProductCard
+               key={item.id}
+               id={item.id}
+               description={item.description}
+               image={cleanedImageUrl}
+               price={item.price}
+               title={item.title}
+            />
+         );
+      });
    };
 
    return (
-      <div className={clsx(classes.container, className, '_container')}>
-         <div className={classes.title_container}>
+      <div
+         className={clsx('productCarousel_container', className, '_container')}
+      >
+         <div className={'productCarousel_title_container'}>
             <h2>{title}</h2>
             <Button
                theme="transparent-gray"
@@ -62,11 +74,12 @@ export const ProductCarousel: FC<ProductCarouselProps> = ({
          </div>
          <Carousel
             autoWidth
+            className={'productCarousel_customCarousel'}
             disableDotsControls
             responsive={responsive}
             countVisibleElements={5}
          >
-            {renderProducts(array)}
+            {renderProducts(data) ?? []}
          </Carousel>
       </div>
    );

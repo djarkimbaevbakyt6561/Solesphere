@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import clsx from 'clsx';
+import { FC } from 'react';
 import ContentLoader from 'react-content-loader';
 import classes from './FeaturedProductCardSkeleton.module.scss';
 

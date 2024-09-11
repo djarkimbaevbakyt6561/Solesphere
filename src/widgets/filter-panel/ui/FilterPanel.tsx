@@ -1,12 +1,14 @@
-import { FC, useEffect, useState } from 'react';
-import classes from './FilterPanel.module.scss';
-import { Accordion } from 'features/accordion';
-import { CATALOG_NAVIGATION_CONTENT } from 'shared/consts';
-import { Input, Radio, RangeSlider } from 'shared/ui';
-import { useSearchParams } from 'react-router-dom';
-import { SearchIcon } from 'shared/assets/icons';
 import clsx from 'clsx';
+import { FC, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Accordion } from 'features/accordion';
+import { CategoryCheckBox } from 'entities/category';
+import { SearchIcon } from 'shared/assets/icons';
+import { CATALOG_NAVIGATION_CONTENT } from 'shared/consts';
 import { useDebounce } from 'shared/lib';
+import { Input, RangeSlider } from 'shared/ui';
+import classes from './FilterPanel.module.scss';
+import { LimitFilter } from './limitFilter/LimitFilter';
 
 interface FilterPanelProps {
    className?: string;
@@ -27,6 +29,7 @@ export const FilterPanel: FC<FilterPanelProps> = ({ className }) => {
 
    useEffect(() => {
       updateTitleParams(searchValue);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [searchValue]);
 
    return (
@@ -35,6 +38,7 @@ export const FilterPanel: FC<FilterPanelProps> = ({ className }) => {
             placeholder="I look for..."
             onChange={e => setSearchValue(e.target.value)}
             value={searchValue}
+            lengthWhenDisabled={1}
             Icon={SearchIcon}
             type="text"
          />
@@ -42,14 +46,18 @@ export const FilterPanel: FC<FilterPanelProps> = ({ className }) => {
             title="Categories"
             content={
                <div className={classes.filterPanel_categories__container}>
+                  <CategoryCheckBox
+                     title="All"
+                     id={0}
+                     isChecked={!searchParams.get('categoryId')}
+                  />
+
                   {CATALOG_NAVIGATION_CONTENT.map(el => {
                      return (
-                        <Radio
-                           value={el.title}
+                        <CategoryCheckBox
                            title={el.title}
                            id={el.id}
                            key={el.id}
-                           name="catalog"
                            isChecked={
                               searchParams.get('categoryId') ===
                               el.id.toString()
@@ -60,14 +68,8 @@ export const FilterPanel: FC<FilterPanelProps> = ({ className }) => {
                </div>
             }
          />
-         <Accordion
-            title="Price range"
-            content={
-               <div>
-                  <RangeSlider />
-               </div>
-            }
-         />
+         <Accordion title="Price range" content={<RangeSlider />} />
+         <Accordion title="Limit" content={<LimitFilter />} />
       </div>
    );
 };

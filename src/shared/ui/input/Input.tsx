@@ -1,10 +1,11 @@
+import clsx from 'clsx';
 import { FC, InputHTMLAttributes } from 'react';
 import classes from './Input.module.scss';
-import clsx from 'clsx';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
    Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
    className?: string;
+   lengthWhenDisabled?: number;
 }
 
 export const Input: FC<InputProps> = ({
@@ -13,6 +14,7 @@ export const Input: FC<InputProps> = ({
    onBlur,
    onFocus,
    Icon,
+   lengthWhenDisabled,
    className,
    ...props
 }) => {
@@ -38,11 +40,18 @@ export const Input: FC<InputProps> = ({
                {...props}
             />
             <button
-               disabled={value != undefined && value.toString().length < 1}
+               disabled={
+                  lengthWhenDisabled
+                     ? value != undefined &&
+                       value.toString().length < lengthWhenDisabled
+                     : false
+               }
             >
                <Icon
                   color={
-                     value != undefined && value.toString().length >= 1
+                     lengthWhenDisabled &&
+                     value != undefined &&
+                     value.toString().length >= lengthWhenDisabled
                         ? 'var(--text-primary) !important'
                         : ''
                   }

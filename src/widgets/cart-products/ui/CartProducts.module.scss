@@ -1,0 +1,9 @@
+@use 'app/styles/breakpoints';
+
+.cartProducts_not_found {
+    text-align: center;
+    font-size: 20px;
+    @media (max-width: breakpoints.$sm) {
+        font-size: 1rem;
+    }
+}

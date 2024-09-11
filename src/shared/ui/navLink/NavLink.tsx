@@ -8,6 +8,7 @@ interface NavLinkProps {
    readonly children: string;
    readonly Icon: FC<React.SVGProps<SVGSVGElement>>;
    readonly className?: string;
+   count?: number;
 }
 
 export const NavLink: FC<NavLinkProps> = ({
@@ -15,10 +16,15 @@ export const NavLink: FC<NavLinkProps> = ({
    children,
    Icon,
    className,
+   count,
 }) => {
+   const countClass = count && count > 0 ? classes.link__count_open : '';
+
    return (
       <Link className={clsx(classes.link, className)} to={to}>
+         <span className={clsx(classes.link__count, countClass)}>{count}</span>
          <Icon />
+
          <p>{children}</p>
       </Link>
    );

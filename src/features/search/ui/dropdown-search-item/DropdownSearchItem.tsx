@@ -17,7 +17,7 @@ export const DropdownSearchItem: FC<IProductCard> = ({
             <p>{title}</p>
             <p className={classes.dropdown_description}>{description}</p>
          </div>
-         <p className={classes.dropdown_price}>{price.toLocaleString()} c</p>
+         <p className={classes.dropdown_price}>{price.toLocaleString()} $</p>
       </Link>
    );
 };

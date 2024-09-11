@@ -1,0 +1,39 @@
+@use 'app/styles/breakpoints';
+
+.productCarousel {
+   &_container {
+      li {
+         width: 276px !important;
+         @media (max-width: breakpoints.$md) {
+            width: 202px !important;
+            margin-right: 15px;
+         }
+      }
+      margin-bottom: 30px;
+      padding: 0 0 20px 0;
+      @media (max-width: breakpoints.$md) {
+         margin-bottom: 0;
+      }
+   }
+   &_customCarousel {
+      @media (max-width: (breakpoints.$xl + 10px)) {
+         .prev__button,
+         .next__button {
+            display: none;
+         }
+         .alice-carousel__dots {
+            position: relative;
+            margin: -40px 0 0;
+         }
+      }
+   }
+   &_title_container {
+      display: flex;
+      justify-content: space-between;
+      @media (max-width: breakpoints.$md) {
+         h2 {
+            font-size: 1.125rem;
+         }
+      }
+   }
+}

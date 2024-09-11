@@ -16,6 +16,9 @@
       "project": "./tsconfig.json"
    },
    "settings": {
+      "react": {
+         "version": "detect"
+      },
       "import/resolver": {
          "typescript": {
             "alwaysTryTypes": true

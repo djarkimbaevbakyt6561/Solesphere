@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
 import clsx from 'clsx';
-import classes from './CatalogPage.module.scss';
-import { FilterPanel } from 'widgets/filter-panel';
+import { useState, useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
 import { CatalogProducts } from 'widgets/catalog-products';
-import { Button, SideBar } from 'shared/ui';
+import { FilterPanel } from 'widgets/filter-panel';
 import { SystemFilteringIcon } from 'shared/assets/icons';
+import { Button, SideBar } from 'shared/ui';
+import classes from './CatalogPage.module.scss';
 
 const CatalogPage = () => {
-   const count = 4;
+   const [count, setCount] = useState<number | undefined>(0);
    const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 838);
 
    useEffect(() => {
@@ -24,6 +25,8 @@ const CatalogPage = () => {
 
    return (
       <div className={clsx(classes.catalogPage__container, '_container')}>
+         <ToastContainer />
+
          <div className={classes.catalogPage_total_books__container}>
             <p>Found {count} books </p>
             {isMobileView && (
@@ -50,7 +53,7 @@ const CatalogPage = () => {
             {!isMobileView && (
                <FilterPanel className={classes.catalogPage_filterPanel} />
             )}
-            <CatalogProducts products={[]} />
+            <CatalogProducts setCount={num => setCount(num)} />
          </div>
       </div>
    );

@@ -3,10 +3,11 @@ import { Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Layout } from 'app/layouts';
 import { useTheme } from 'app/providers/theme';
-import { LazyBasket } from 'pages/basket';
+import { LazyBasket } from 'pages/cart';
 import { LazyCatalogPage } from 'pages/catalog';
 import { HomePage } from 'pages/homePage';
 import { LoadingPage } from 'pages/loading';
+import { LazyProductDetails } from 'pages/product-details';
 import { LazySignIn } from 'pages/sign-in';
 import { LazySignUp } from 'pages/sign-up';
 
@@ -41,7 +42,7 @@ export const AppRouter = () => {
                ),
             },
             {
-               path: 'basket',
+               path: 'cart',
                element: (
                   <Suspense fallback={<LoadingPage />}>
                      <LazyBasket />
@@ -53,6 +54,14 @@ export const AppRouter = () => {
                element: (
                   <Suspense fallback={<LoadingPage />}>
                      <LazyCatalogPage />
+                  </Suspense>
+               ),
+            },
+            {
+               path: 'product/:id/details',
+               element: (
+                  <Suspense fallback={<LoadingPage />}>
+                     <LazyProductDetails />
                   </Suspense>
                ),
             },

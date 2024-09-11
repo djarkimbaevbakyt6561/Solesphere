@@ -45,7 +45,7 @@
          color: var(--white);
       }
       &:disabled {
-         opacity: 0.4;
+         opacity: 0.7;
          cursor: default;
          svg {
             color: var(--white);
@@ -71,7 +71,7 @@
       background-color: transparent;
 
       &:disabled {
-         opacity: 0.3;
+         opacity: 0.7;
          cursor: default;
          border: 1px solid var(--text-primary);
          svg {
@@ -109,7 +109,7 @@
       background-color: transparent;
 
       &:disabled {
-         opacity: 0.4;
+         opacity: 0.7;
          cursor: default;
          border: 1px solid var(--border);
          color: var(--text-primary);

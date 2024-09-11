@@ -7,19 +7,19 @@ export const CATALOG_NAVIGATION_CONTENT = [
    },
    {
       id: 2,
-      title: 'Электроника',
+      title: 'Electronics',
    },
    {
       id: 3,
-      title: 'Мебель',
+      title: 'Furniture',
    },
    {
       id: 4,
-      title: 'Обувь',
+      title: 'Shoes',
    },
    {
       id: 5,
-      title: 'Смешанный',
+      title: 'Miscellaneous',
    },
 ];
 
@@ -28,7 +28,7 @@ export const ABOUT_ME = [
       id: 1,
       title: 'Telegram',
       Icon: TelegramIcon,
-      to: 'https://t.me/KINGPro6561',
+      to: 'https://t.me/bahadzh07',
    },
    {
       id: 2,
