@@ -4,26 +4,29 @@ import { toast } from 'react-toastify';
 import { cartActions, getCartItems } from 'entities/cartProduct';
 import { ProductCard } from 'entities/product';
 import { BasketIcon } from 'shared/assets/icons';
-import { IProductCard } from 'shared/consts';
 import { useAppDispatch, useAppSelector } from 'shared/lib/store';
 import { Button } from 'shared/ui';
 import classes from './FeaturedProductCard.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
-interface FeaturedProductCardProps extends IProductCard {
+interface FeaturedProductCardProps extends ProductNameSpace.Product {
    className?: string;
 }
 
 export const FeaturedProductCard: FC<FeaturedProductCardProps> = ({
    id,
    title,
-   image,
    description,
    className,
    price,
+   images,
+   creationAt,
+   updatedAt,
+   category,
 }) => {
    const cartItems = useAppSelector(getCartItems);
    const dispatch = useAppDispatch();
+   const cleanedImageUrl = images[0].replace(/[[\]" ]/g, '');
 
    const addToCartHandler = () => {
       const isProductInCart = cartItems.some(el => el.id === id);
@@ -46,9 +49,12 @@ export const FeaturedProductCard: FC<FeaturedProductCardProps> = ({
          cartActions.addToCart({
             id,
             title,
-            image,
-            description,
             price,
+            description,
+            images,
+            creationAt,
+            updatedAt,
+            category,
             count: 1,
          }),
       );
@@ -65,12 +71,12 @@ export const FeaturedProductCard: FC<FeaturedProductCardProps> = ({
    };
    return (
       <>
-         <div className={clsx(className, classes.container)}>
+         <div className={clsx(className)}>
             <ProductCard
                id={id}
                title={title}
                description={description}
-               image={image}
+               image={cleanedImageUrl}
                price={price}
             />
             <Button

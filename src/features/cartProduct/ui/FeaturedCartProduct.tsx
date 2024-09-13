@@ -1,12 +1,14 @@
 import { FC } from 'react';
-import { cartActions, CartProduct, ICartProduct } from 'entities/cartProduct';
+import { cartActions, CartProduct } from 'entities/cartProduct';
 import { CrossIcon } from 'shared/assets/icons';
+import { IProductCard } from 'shared/consts';
 import { useAppDispatch } from 'shared/lib/store';
 import { Button } from 'shared/ui';
 import classes from './FeaturedCartProduct.module.scss';
 
-interface CartProductProps extends ICartProduct {
+interface CartProductProps extends IProductCard {
    className?: string;
+   count: number;
 }
 
 export const FeaturedCartProduct: FC<CartProductProps> = ({

@@ -7,7 +7,7 @@ import {
    FeaturedProductCardSkeleton,
 } from 'features/product';
 import { useGetProductsByCategoryIdQuery } from 'entities/product/api';
-import { Button, Carousel } from 'shared/ui';
+import { Button, Carousel, NoFound } from 'shared/ui';
 import './ProductCarousel.scss';
 
 const responsive: Responsive = {
@@ -44,14 +44,15 @@ export const ProductCarousel: FC<ProductCarouselProps> = ({
       }
 
       return items?.map(item => {
-         const cleanedImageUrl = item.images[0].replace(/[[\]" ]/g, '');
-
          return (
             <FeaturedProductCard
                key={item.id}
                id={item.id}
+               creationAt={item.creationAt}
+               updatedAt={item.updatedAt}
+               category={item.category}
                description={item.description}
-               image={cleanedImageUrl}
+               images={item.images}
                price={item.price}
                title={item.title}
             />
@@ -72,15 +73,19 @@ export const ProductCarousel: FC<ProductCarouselProps> = ({
                See more
             </Button>
          </div>
-         <Carousel
-            autoWidth
-            className={'productCarousel_customCarousel'}
-            disableDotsControls
-            responsive={responsive}
-            countVisibleElements={5}
-         >
-            {renderProducts(data) ?? []}
-         </Carousel>
+         {renderProducts(data)?.length ? (
+            <Carousel
+               autoWidth
+               className={'productCarousel_customCarousel'}
+               disableDotsControls
+               responsive={responsive}
+               countVisibleElements={5}
+            >
+               {renderProducts(data) ?? []}
+            </Carousel>
+         ) : (
+            <NoFound />
+         )}
       </div>
    );
 };

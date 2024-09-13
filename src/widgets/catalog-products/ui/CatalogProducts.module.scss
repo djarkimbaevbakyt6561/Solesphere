@@ -16,26 +16,15 @@
       padding: 15px 12px;
       margin-top: 50px;
    }
-   @media (min-width: (breakpoints.$md + 1px)) and (max-width: breakpoints.$xl) {
-      &_product_card {
-         &_skeleton {
-            max-width: 230px;
-            max-height: 348px;
-         }
-         > div {
-            max-width: 230px;
-            font-size: 1rem !important;
-            > p {
-               font-size: 1.05rem;
-            }
-         }
-         > button {
-            font-size: 1rem;
-            > svg {
-               width: 22px;
-               height: 22px;
-            }
+   &_product_card {
+      max-width: 276px;
+      width: 100%;
+      @media (max-width: breakpoints.$md) {
+         max-width: 202px;
+         img {
+            max-height: 202px;
          }
       }
    }
+  
 }

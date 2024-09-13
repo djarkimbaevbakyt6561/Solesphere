@@ -60,16 +60,18 @@ export const CatalogProducts: FC<CatalogProductsProps> = ({ setCount }) => {
          return <NoFound />;
       }
       return items?.map(item => {
-         const cleanedImageUrl = item.images[0].replace(/[[\]" ]/g, '');
-
          return (
             <FeaturedProductCard
                key={item.id}
                id={item.id}
+               creationAt={item.creationAt}
+               updatedAt={item.updatedAt}
+               category={item.category}
                description={item.description}
-               image={cleanedImageUrl}
+               images={item.images}
                price={item.price}
                title={item.title}
+               className={classes.catalogProducts_product_card}
             />
          );
       });

@@ -11,7 +11,7 @@ export const DropdownSearchItem: FC<IProductCard> = ({
    description,
 }) => {
    return (
-      <Link className={classes.dropdown__item} to={`/product/details/${id}`}>
+      <Link className={classes.dropdown__item} to={`/product/${id}/details`}>
          <img src={image} alt={title} />
          <div className={classes.dropdown_title__container}>
             <p>{title}</p>

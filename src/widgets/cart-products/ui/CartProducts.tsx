@@ -15,7 +15,7 @@ export const CartProductsWidget = () => {
                   title={el.title}
                   description={el.description}
                   count={el.count}
-                  image={el.image}
+                  image={el.images[0]}
                   price={el.price}
                />
             </li>

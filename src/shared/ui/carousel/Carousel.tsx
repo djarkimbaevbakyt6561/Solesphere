@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { FC, useEffect, useState } from 'react';
 import AliceCarousel, { Responsive } from 'react-alice-carousel';
 import { ArrowIcon } from 'shared/assets/icons';
-import { NoFound } from '../noFound/NoFound';
 
 import './Carousel.scss';
 
@@ -57,35 +56,31 @@ export const Carousel: FC<CarouselProps> = ({
    }, [activeIndex]);
    return (
       <div className={clsx('carousel', className, noFoundClass)}>
-         {children.length ? (
-            <>
-               <AliceCarousel
-                  autoWidth={autoWidth}
-                  mouseTracking
-                  responsive={responsive}
-                  activeIndex={activeIndex}
-                  items={children}
-                  disableButtonsControls
-                  disableDotsControls={disableDotsControls}
-               />
-               <button
-                  className={'prev__button'}
-                  onClick={getSlidePrev}
-                  disabled={isDisabledSlidePrev}
-               >
-                  <ArrowIcon />
-               </button>
-               <button
-                  className={'next__button'}
-                  onClick={getSlideNext}
-                  disabled={isDisabledSlideNext}
-               >
-                  <ArrowIcon className={'carousel_right_arrow'} />
-               </button>
-            </>
-         ) : (
-            <NoFound />
-         )}
+         <>
+            <AliceCarousel
+               autoWidth={autoWidth}
+               mouseTracking
+               responsive={responsive}
+               activeIndex={activeIndex}
+               items={children}
+               disableButtonsControls
+               disableDotsControls={disableDotsControls}
+            />
+            <button
+               className={'prev__button'}
+               onClick={getSlidePrev}
+               disabled={isDisabledSlidePrev}
+            >
+               <ArrowIcon />
+            </button>
+            <button
+               className={'next__button'}
+               onClick={getSlideNext}
+               disabled={isDisabledSlideNext}
+            >
+               <ArrowIcon className={'carousel_right_arrow'} />
+            </button>
+         </>
       </div>
    );
 };

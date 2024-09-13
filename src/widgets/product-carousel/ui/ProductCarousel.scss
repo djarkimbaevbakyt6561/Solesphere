@@ -7,6 +7,9 @@
          @media (max-width: breakpoints.$md) {
             width: 202px !important;
             margin-right: 15px;
+            img {
+               max-height: 202px;
+            }
          }
       }
       margin-bottom: 30px;

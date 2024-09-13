@@ -39,10 +39,21 @@ const api = index.injectEndpoints({
          providesTags: ['product'],
          keepUnusedDataFor: 0,
       }),
+      getProductById: build.query<
+         ProductNameSpace.GetProductByIdResponse,
+         ProductNameSpace.GetProductByIdRequest
+      >({
+         query: id => ({
+            url: `/v1/products/${id}`,
+            method: 'GET',
+         }),
+         providesTags: ['product'],
+      }),
    }),
 });
 
 export const {
    useGetProductsByCategoryIdQuery,
    useGetProductsWithFilterQuery,
+   useGetProductByIdQuery,
 } = api;

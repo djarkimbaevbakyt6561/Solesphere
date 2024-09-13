@@ -12,6 +12,9 @@ namespace ProductNameSpace {
    };
    type GetProductsWithFilterResponse = Product[];
 
+   type GetProductByIdRequest = string;
+   type GetProductByIdResponse = Product;
+
    type Product = {
       id: number;
       title: string;

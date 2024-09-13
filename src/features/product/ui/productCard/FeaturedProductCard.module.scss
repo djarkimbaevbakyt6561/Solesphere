@@ -35,10 +35,3 @@
    width: 100%;
    max-width: 256px;
 }
-.container {
-   max-width: 276px;
-   @media (max-width: breakpoints.$md) {
-      max-width: 202px;
-   }
-   // margin-right: 20px;
-}
