@@ -16,58 +16,63 @@ import '../styles/index.scss';
 export const AppRouter = () => {
    const { theme } = useTheme();
 
-   const router = createBrowserRouter([
+   const router = createBrowserRouter(
+      [
+         {
+            path: '/',
+            element: <Layout />,
+            children: [
+               {
+                  index: true,
+                  element: <HomePage />,
+               },
+               {
+                  path: 'sign-in',
+                  element: (
+                     <Suspense fallback={<LoadingPage />}>
+                        <LazySignIn />
+                     </Suspense>
+                  ),
+               },
+               {
+                  path: 'sign-up',
+                  element: (
+                     <Suspense fallback={<LoadingPage />}>
+                        <LazySignUp />
+                     </Suspense>
+                  ),
+               },
+               {
+                  path: 'cart',
+                  element: (
+                     <Suspense fallback={<LoadingPage />}>
+                        <LazyBasket />
+                     </Suspense>
+                  ),
+               },
+               {
+                  path: 'catalog',
+                  element: (
+                     <Suspense fallback={<LoadingPage />}>
+                        <LazyCatalogPage />
+                     </Suspense>
+                  ),
+               },
+               {
+                  path: 'product/:id/details',
+                  element: (
+                     <Suspense fallback={<LoadingPage />}>
+                        <LazyProductDetails />
+                     </Suspense>
+                  ),
+               },
+            ],
+         },
+      ],
       {
-         path: '/',
-         element: <Layout />,
-         children: [
-            {
-               index: true,
-               element: <HomePage />,
-            },
-            {
-               path: 'sign-in',
-               element: (
-                  <Suspense fallback={<LoadingPage />}>
-                     <LazySignIn />
-                  </Suspense>
-               ),
-            },
-            {
-               path: 'sign-up',
-               element: (
-                  <Suspense fallback={<LoadingPage />}>
-                     <LazySignUp />
-                  </Suspense>
-               ),
-            },
-            {
-               path: 'cart',
-               element: (
-                  <Suspense fallback={<LoadingPage />}>
-                     <LazyBasket />
-                  </Suspense>
-               ),
-            },
-            {
-               path: 'catalog',
-               element: (
-                  <Suspense fallback={<LoadingPage />}>
-                     <LazyCatalogPage />
-                  </Suspense>
-               ),
-            },
-            {
-               path: 'product/:id/details',
-               element: (
-                  <Suspense fallback={<LoadingPage />}>
-                     <LazyProductDetails />
-                  </Suspense>
-               ),
-            },
-         ],
+         basename: '/Solesphere',
       },
-   ]);
+   );
 
    return (
       <div className={clsx('app', theme)}>
