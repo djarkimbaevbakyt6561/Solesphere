@@ -12,6 +12,7 @@ export function buildPlugins({
    const plugins: Configuration['plugins'] = [
       new HtmlWebpackPlugin({
          template: paths.html,
+         favicon: paths.favicon
       }),
    ];
    if (isDev) {

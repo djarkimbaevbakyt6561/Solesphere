@@ -6,6 +6,7 @@ export interface BuildPaths {
    entities: string;
    features: string;
    pages: string;
+   favicon: string;
    shared: string;
    app: string;
 }

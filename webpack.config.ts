@@ -17,6 +17,7 @@ export default (env: EnvVariables) => {
       entities: path.resolve(__dirname, 'src/entities'),
       features: path.resolve(__dirname, 'src/features'),
       pages: path.resolve(__dirname, 'src/pages'),
+      favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
       shared: path.resolve(__dirname, 'src/shared'),
       app: path.resolve(__dirname, 'src/app'),
    };
