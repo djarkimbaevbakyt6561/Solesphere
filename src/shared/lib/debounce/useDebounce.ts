@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 
 type Timer = ReturnType<typeof setTimeout>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useDebounce = <Func extends (...args: any[]) => void>(
    func: Func,
    delay = 1200,
