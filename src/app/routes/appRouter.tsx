@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Suspense } from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { Layout } from 'app/layouts';
 import { useTheme } from 'app/providers/theme';
 import { LazyBasket } from 'pages/cart';
@@ -16,7 +16,7 @@ import '../styles/index.scss';
 export const AppRouter = () => {
    const { theme } = useTheme();
 
-   const router = createBrowserRouter(
+   const router = createHashRouter(
       [
          {
             path: '/',
