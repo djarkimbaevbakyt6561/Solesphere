@@ -69,9 +69,7 @@ export const AppRouter = () => {
             ],
          },
       ],
-      {
-         basename: '/Solesphere',
-      },
+      {},
    );
 
    return (
