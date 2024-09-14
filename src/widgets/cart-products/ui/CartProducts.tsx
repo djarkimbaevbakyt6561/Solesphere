@@ -8,18 +8,22 @@ export const CartProductsWidget = () => {
 
    return cartItems.length ? (
       <ul>
-         {cartItems.map(el => (
-            <li key={el.id}>
-               <FeaturedCartProduct
-                  id={el.id}
-                  title={el.title}
-                  description={el.description}
-                  count={el.count}
-                  image={el.images[0]}
-                  price={el.price}
-               />
-            </li>
-         ))}
+         {cartItems.map(el => {
+            const cleanedImageUrl = el.images[0].replace(/[[\]" ]/g, '');
+
+            return (
+               <li key={el.id}>
+                  <FeaturedCartProduct
+                     id={el.id}
+                     title={el.title}
+                     description={el.description}
+                     count={el.count}
+                     image={cleanedImageUrl}
+                     price={el.price}
+                  />
+               </li>
+            );
+         })}
       </ul>
    ) : (
       <div className={classes.cartProducts_not_found}>

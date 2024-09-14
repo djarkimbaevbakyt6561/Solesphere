@@ -7,6 +7,7 @@ import { LazyBasket } from 'pages/cart';
 import { LazyCatalogPage } from 'pages/catalog';
 import { HomePage } from 'pages/homePage';
 import { LoadingPage } from 'pages/loading';
+import { NotFoundPage } from 'pages/not-found';
 import { LazyProductDetails } from 'pages/product-details';
 import { LazySignIn } from 'pages/sign-in';
 import { LazySignUp } from 'pages/sign-up';
@@ -67,6 +68,10 @@ export const AppRouter = () => {
                   ),
                },
             ],
+         },
+         {
+            path: '*',
+            element: <NotFoundPage />,
          },
       ],
       {},
