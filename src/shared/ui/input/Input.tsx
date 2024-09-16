@@ -47,15 +47,7 @@ export const Input: FC<InputProps> = ({
                      : false
                }
             >
-               <Icon
-                  color={
-                     lengthWhenDisabled &&
-                     value != undefined &&
-                     value.toString().length >= lengthWhenDisabled
-                        ? 'var(--text-primary) !important'
-                        : ''
-                  }
-               />
+               <Icon />
             </button>
          </>
       );

@@ -31,7 +31,7 @@ export const CartProduct: FC<CartProductProps> = ({
             <p className={classes.cartProduct_description}>{description}</p>
             {countButtons}
          </div>
-         <p className={classes.cartProduct_price}>{price.toLocaleString()} c</p>
+         <p className={classes.cartProduct_price}>{price.toLocaleString()} $</p>
          {deleteButton}
       </div>
    );

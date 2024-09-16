@@ -7,13 +7,16 @@
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
       p {
+         color: var(--text-primary);
          font-weight: 600;
       }
    }
    &_content {
       height: 0;
       overflow: hidden;
-      transition: 0.5s all, 0.3s opacity;
+      transition:
+         0.5s all,
+         0.3s opacity;
       margin-top: 15px;
    }
    &_arrow__icon {
@@ -21,6 +24,7 @@
       height: 14px;
       transition: 0.5s all;
       transform: rotate(-90deg);
+      color: var(--text-primary);
       &__open {
          transform: rotate(-270deg);
       }

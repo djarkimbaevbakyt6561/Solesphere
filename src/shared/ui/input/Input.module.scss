@@ -5,7 +5,6 @@
    padding: 0 40px 0 10px;
    border-radius: 0%;
    border: 1px solid var(--border);
-   color: var(--text-primary);
    font-size: 1rem;
    height: 44px;
    @media (max-width: breakpoints.$md) {
@@ -35,10 +34,15 @@
          transition: all 0.15s linear;
          width: 24px;
          height: 24px;
-         color: var(--border-account);
+         color: rgb(21, 21, 21);
       }
       &:not(:disabled) {
          cursor: pointer;
+      }
+      &:disabled {
+         svg {
+            opacity: 0.6;
+         }
       }
    }
 }

@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { useState, useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
 import { CatalogProducts } from 'widgets/catalog-products';
 import { FilterPanel } from 'widgets/filter-panel';
 import { SystemFilteringIcon } from 'shared/assets/icons';
@@ -25,8 +24,6 @@ const CatalogPage = () => {
 
    return (
       <div className={clsx(classes.catalogPage__container, '_container')}>
-         <ToastContainer />
-
          <div className={classes.catalogPage_total_books__container}>
             <p>Found {count} books </p>
             {isMobileView && (

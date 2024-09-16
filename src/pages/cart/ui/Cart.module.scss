@@ -12,6 +12,7 @@
       padding: 10px 0;
       p {
          font-size: 1.25rem;
+         color: var(--text-primary);
          font-weight: 600;
       }
       @media (max-width: breakpoints.$md) {
@@ -29,7 +30,7 @@
    }
    &_total_cost {
       font-weight: 600;
-      color: var(--dark-red);
+      color: var(--dark-red) !important;
       font-size: 1.375rem;
       white-space: nowrap;
       @media (max-width: breakpoints.$md) {

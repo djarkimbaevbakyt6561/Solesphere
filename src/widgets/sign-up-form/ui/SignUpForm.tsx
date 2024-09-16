@@ -98,7 +98,7 @@ export const SignUpForm = () => {
                type="password"
                placeholder="Confirm password"
             />
-            <Button className={classes.SignUp_form_button}>Sign Up</Button>
+            <Button className={classes.signUp_form_button}>Sign Up</Button>
          </form>
       </FormProvider>
    );

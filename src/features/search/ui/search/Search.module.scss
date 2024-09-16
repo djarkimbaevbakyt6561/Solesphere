@@ -8,6 +8,7 @@
       justify-content: center;
    }
    &_info {
+      color: var(--text-primary);
       @media (max-width: breakpoints.$md) {
          font-size: 0.875rem;
       }

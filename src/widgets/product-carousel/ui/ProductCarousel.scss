@@ -33,6 +33,9 @@
    &_title_container {
       display: flex;
       justify-content: space-between;
+      h2 {
+         color: var(--text-primary);
+      }
       @media (max-width: breakpoints.$md) {
          h2 {
             font-size: 1.125rem;

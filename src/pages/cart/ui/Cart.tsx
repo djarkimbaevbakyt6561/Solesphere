@@ -18,7 +18,7 @@ const Cart = () => {
             <SectionHeader title="Your products" count={count} />
             <div className={classes.cart_total_cost__container}>
                <p>Total cost:</p>
-               <p className={classes.cart_total_cost}>{total} с</p>
+               <p className={classes.cart_total_cost}>{total} $</p>
             </div>
             <CartProductsWidget />
          </div>

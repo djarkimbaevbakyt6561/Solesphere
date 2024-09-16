@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { DotLoader } from 'react-spinners';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { ProductDetailsCarousel } from 'widgets/product-details-carousel';
 import { ProductInfo } from 'widgets/product-info';
 import { useGetProductByIdQuery } from 'entities/product/api';
@@ -38,38 +38,33 @@ const ProductDetails = () => {
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [id]);
-   return (
-      <>
-         <ToastContainer />
-         {isLoading ? (
-            <div className={classes.productDetails__loading_page__container}>
-               <DotLoader />
-            </div>
-         ) : (
-            <div
-               className={clsx(
-                  classes.productDetails__container,
-                  '_container',
-                  errorClass,
-               )}
-            >
-               {isError ? (
-                  <NoFound />
-               ) : (
-                  <>
-                     <ProductDetailsCarousel
-                        product={{
-                           id: data?.id,
-                           title: data?.title,
-                           images: data?.images,
-                        }}
-                     />
-                     <ProductInfo product={data} />
-                  </>
-               )}
-            </div>
+   return isLoading ? (
+      <div className={classes.productDetails__loading_page__container}>
+         <DotLoader />
+      </div>
+   ) : (
+      <div
+         className={clsx(
+            classes.productDetails__container,
+            '_container',
+            errorClass,
          )}
-      </>
+      >
+         {isError ? (
+            <NoFound />
+         ) : (
+            <>
+               <ProductDetailsCarousel
+                  product={{
+                     id: data?.id,
+                     title: data?.title,
+                     images: data?.images,
+                  }}
+               />
+               <ProductInfo product={data} />
+            </>
+         )}
+      </div>
    );
 };
 export default ProductDetails;

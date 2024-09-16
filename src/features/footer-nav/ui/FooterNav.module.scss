@@ -1,6 +1,8 @@
 .footer_nav {
    &__title {
       margin-bottom: 7px;
+      color: var(--text-primary);
+      font-size: 1.125rem;
    }
    &__ul {
       display: flex;

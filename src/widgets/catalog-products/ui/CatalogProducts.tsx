@@ -22,6 +22,9 @@ export const CatalogProducts: FC<CatalogProductsProps> = ({ setCount }) => {
       priceMin: searchParams.get('price_min') ?? undefined,
       title: searchParams.get('title') ?? undefined,
    });
+   const limitQueryParam = searchParams.get('limit')
+      ? Number(searchParams.get('limit'))
+      : 12;
 
    const limitChangeHandler = () => {
       let limit = 12;
@@ -82,7 +85,7 @@ export const CatalogProducts: FC<CatalogProductsProps> = ({ setCount }) => {
          <div className={classes.catalogProducts__container}>
             {renderProducts(data)}
          </div>
-         {data?.length && data?.length === Number(searchParams.get('limit')) ? (
+         {data?.length && data?.length === limitQueryParam ? (
             <Button
                className={classes.catalogProducts__button}
                theme="transparent-gray"

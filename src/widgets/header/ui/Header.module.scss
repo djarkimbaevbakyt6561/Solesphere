@@ -72,10 +72,11 @@
       svg {
          width: 24px;
          height: 24px;
+         fill: var(--text-primary);
       }
       &:hover {
          svg {
-            fill: var(--primary-bg)
+            fill: var(--primary-bg) !important;
          }
       }
       @media (min-width: (breakpoints.$md + 1px)) {

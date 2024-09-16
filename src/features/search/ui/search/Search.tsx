@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';
 import { useGetProductsWithFilterQuery } from 'entities/product/api';
 import { SearchIcon } from 'shared/assets/icons';
@@ -13,6 +14,7 @@ interface SearchProps {
 export const Search: FC<SearchProps> = ({ className }) => {
    const [isOpen, setIsOpen] = useState(false);
    const [searchValue, setSearchValue] = useState('');
+   const navigate = useNavigate();
 
    const { data, refetch, isFetching } = useGetProductsWithFilterQuery({
       title: searchValue,
@@ -66,7 +68,12 @@ export const Search: FC<SearchProps> = ({ className }) => {
                );
             })}
 
-            <Button theme="transparent-gray">See more</Button>
+            <Button
+               theme="transparent-gray"
+               onClick={() => navigate(`/catalog?title=${searchValue}`)}
+            >
+               See more
+            </Button>
          </div>
       );
    };

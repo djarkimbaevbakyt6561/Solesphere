@@ -27,3 +27,6 @@ export { Dropdown } from './dropdown/Dropdown';
 
 // package noFound
 export { NoFound } from './noFound/NoFound';
+
+// package icon-button
+export { IconButton } from './icon-button/IconButton';

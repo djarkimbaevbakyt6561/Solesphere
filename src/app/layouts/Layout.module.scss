@@ -3,8 +3,39 @@
       display: flex;
       flex-direction: column;
       min-height: 100%;
+      background: var(--white);
    }
    &__main {
       flex-grow: 1;
+   }
+   &_darkMode {
+      &__container {
+         width: 46px;
+         height: 46px;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         transition: all 0.16s ease-in-out;
+      }
+      &__light {
+         background-color: var(--primary-bg);
+         .layout_darkMode__button {
+            > svg {
+               color: var(--white);
+            }
+         }
+      }
+      &__dark {
+         background-color: var(--black);
+         .layout_darkMode__button {
+            > svg {
+               color: var(--primary-bg);
+            }
+         }
+      }
    }
 }

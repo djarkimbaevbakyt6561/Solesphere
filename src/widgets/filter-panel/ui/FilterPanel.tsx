@@ -32,6 +32,11 @@ export const FilterPanel: FC<FilterPanelProps> = ({ className }) => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [searchValue]);
 
+   useEffect(() => {
+      setSearchValue(searchParams.get('title') ?? '');
+
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [searchParams.get('title')]);
    return (
       <div className={clsx(classes.filterPanel__container, className)}>
          <Input
