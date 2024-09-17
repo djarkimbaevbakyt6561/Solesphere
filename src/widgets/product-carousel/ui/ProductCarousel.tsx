@@ -7,7 +7,7 @@ import {
    FeaturedProductCardSkeleton,
 } from 'features/product';
 import { useGetProductsByCategoryIdQuery } from 'entities/product/api';
-import { Button, Carousel, NoFound } from 'shared/ui';
+import { Button, Carousel } from 'shared/ui';
 import './ProductCarousel.scss';
 
 const responsive: Responsive = {
@@ -66,12 +66,14 @@ export const ProductCarousel: FC<ProductCarouselProps> = ({
       >
          <div className={'productCarousel_title_container'}>
             <h2>{title}</h2>
-            <Button
-               theme="transparent-gray"
-               onClick={() => navigate(`catalog?categoryId=${id}`)}
-            >
-               See more
-            </Button>
+            {renderProducts(data)?.length && (
+               <Button
+                  theme="transparent-gray"
+                  onClick={() => navigate(`catalog?categoryId=${id}`)}
+               >
+                  See more
+               </Button>
+            )}
          </div>
          {renderProducts(data)?.length ? (
             <Carousel
@@ -84,7 +86,9 @@ export const ProductCarousel: FC<ProductCarouselProps> = ({
                {renderProducts(data) ?? []}
             </Carousel>
          ) : (
-            <NoFound />
+            <div className="productCarousel_notFound">
+               No products found in category {title}
+            </div>
          )}
       </div>
    );

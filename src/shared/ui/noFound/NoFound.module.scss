@@ -11,6 +11,7 @@
       text-transform: uppercase;
       font-weight: 500;
       color: var(--text-primary);
+      opacity: 0.6;
       @media (max-width: breakpoints.$md) {
          font-size: 24px;
       }

@@ -42,4 +42,8 @@
          }
       }
    }
+   &_notFound {
+      text-align: center;
+      color: var(--text-primary);
+   }
 }
