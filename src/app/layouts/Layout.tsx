@@ -1,10 +1,11 @@
 import clsx from 'clsx';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { Theme, useTheme } from 'app/providers/theme';
 import { Footer } from 'widgets/footer';
 import { Header } from 'widgets/header';
 import { SunIcon, MoonIcon } from 'shared/assets/icons';
+import { Theme } from 'shared/configs';
+import { useTheme } from 'shared/lib';
 import { IconButton } from 'shared/ui';
 import classes from './Layout.module.scss';
 

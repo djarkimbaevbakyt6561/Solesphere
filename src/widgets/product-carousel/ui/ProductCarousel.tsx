@@ -66,13 +66,15 @@ export const ProductCarousel: FC<ProductCarouselProps> = ({
       >
          <div className={'productCarousel_title_container'}>
             <h2>{title}</h2>
-            {renderProducts(data)?.length && (
+            {renderProducts(data)?.length ? (
                <Button
                   theme="transparent-gray"
                   onClick={() => navigate(`catalog?categoryId=${id}`)}
                >
                   See more
                </Button>
+            ) : (
+               ''
             )}
          </div>
          {renderProducts(data)?.length ? (

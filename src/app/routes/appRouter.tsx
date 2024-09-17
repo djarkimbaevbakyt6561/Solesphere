@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { Suspense } from 'react';
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { Layout } from 'app/layouts';
-import { useTheme } from 'app/providers/theme';
 import { LazyBasket } from 'pages/cart';
 import { LazyCatalogPage } from 'pages/catalog';
 import { HomePage } from 'pages/homePage';
@@ -13,6 +12,7 @@ import { LazySignIn } from 'pages/sign-in';
 import { LazySignUp } from 'pages/sign-up';
 
 import '../styles/index.scss';
+import { useTheme } from 'shared/lib';
 
 export const AppRouter = () => {
    const { theme } = useTheme();

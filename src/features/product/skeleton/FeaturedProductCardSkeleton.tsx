@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { FC } from 'react';
 import ContentLoader from 'react-content-loader';
+import { Theme } from 'shared/configs';
+import { useTheme } from 'shared/lib';
 import classes from './FeaturedProductCardSkeleton.module.scss';
 
 interface FeaturedProductCardSkeletonProps {
@@ -10,6 +12,11 @@ interface FeaturedProductCardSkeletonProps {
 export const FeaturedProductCardSkeleton: FC<
    FeaturedProductCardSkeletonProps
 > = ({ className }) => {
+   const { theme } = useTheme();
+   const isLight = theme === Theme.LIGHT;
+
+   const backgroundColor = isLight ? '#f3f3f3' : '#5f5f5f';
+   const foregroundColor = isLight ? '#ecebeb' : '#bebebe';
    return (
       <ContentLoader
          className={clsx(classes.productCard_skeleton, className)}
@@ -17,8 +24,8 @@ export const FeaturedProductCardSkeleton: FC<
          width={256}
          height={372}
          viewBox="0 0 256 372"
-         backgroundColor="#f3f3f3"
-         foregroundColor="#ecebeb"
+         backgroundColor={backgroundColor}
+         foregroundColor={foregroundColor}
       >
          <rect x="0" y="0" rx="0" ry="0" width="256" height="256" />
          <rect x="0" y="265" rx="0" ry="0" width="256" height="18" />
