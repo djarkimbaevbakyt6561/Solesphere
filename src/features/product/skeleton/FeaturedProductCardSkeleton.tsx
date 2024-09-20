@@ -16,7 +16,7 @@ export const FeaturedProductCardSkeleton: FC<
    const isLight = theme === Theme.LIGHT;
 
    const backgroundColor = isLight ? '#f3f3f3' : '#5f5f5f';
-   const foregroundColor = isLight ? '#ecebeb' : '#bebebe';
+   const foregroundColor = isLight ? '#ecebeb' : '#747474';
    return (
       <ContentLoader
          className={clsx(classes.productCard_skeleton, className)}
