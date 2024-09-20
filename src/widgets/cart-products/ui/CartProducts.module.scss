@@ -3,6 +3,8 @@
 .cartProducts_not_found {
     text-align: center;
     font-size: 20px;
+    color: var(--text-primary);
+    max-width: 800px;
     @media (max-width: breakpoints.$sm) {
         font-size: 1rem;
     }
