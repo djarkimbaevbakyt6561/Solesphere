@@ -9,7 +9,7 @@
       background-color: var(--white);
       overflow-x: hidden;
       transition: 0.5s all;
-      padding-top: 15px;
+      padding-top: 16px;
    }
    &_button__container {
       display: flex;
@@ -47,8 +47,7 @@
    &_open {
       border: 1px solid var(--border);
       border-top: none;
-      padding-right: 16px;
-      padding-left: 16px;
+      padding: 16px;
       @media (max-width: 500px) {
          width: 100% !important;
          border-left: none;
