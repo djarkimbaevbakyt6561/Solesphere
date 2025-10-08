@@ -37,7 +37,7 @@ These instructions will help you set up and run the project locally.
 
 ```bash
 git clone https://github.com/djarkimbaevbakyt6561/Solesphere.git solesphere
-cd solsphere
+cd solesphere
 ```
 
 ### 2. 📦 Install Dependencies
