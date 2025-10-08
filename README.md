@@ -26,7 +26,7 @@ A modern, productive, and responsive online store where you can buy various prod
 | SASS              | Preprocessor for CSS                        |
 | RTK-Query         | Powerful tool for data fetching and caching |
 | React Router      | Library for creating SPA App                |
-| Axios             | Library that simplifies working with db     |
+| Axios             | Library that simplifies working with server |
 ---
 
 ## 📁 Getting Started
