@@ -31,7 +31,7 @@ A modern, productive, and responsive online store where you can buy various prod
 
 ## 📁 Getting Started
 
-These instructions will help you set up and run the portfolio locally.
+These instructions will help you set up and run the project locally.
 
 ### 1. Clone the repository
 
